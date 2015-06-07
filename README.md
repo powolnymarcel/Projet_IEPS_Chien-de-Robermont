@@ -2,15 +2,18 @@ Description
 -------
 Projet N°3 pour le cours " Projet web dynamique" .
 
-Groupe : Marcello & Powolny
+Groupe : Marcello & Powolny.
+
 Professeur: Lacroix Pascal.
+
 Design fourni par la section Design.
+
+-=[IEPS Fléron]=-
 
 Consignes 
 -------
- Refonte du site "Education Canine Le Chien de robermont" sur le framework Laravel5
+ Refonte du site "Education Canine Le Chien de robermont" avec le framework Laravel5
 
--=[IEPS Fléron]=-
 
 ## Laravel PHP Framework
 
