@@ -2,8 +2,10 @@ Description
 -------
 Projet N°3 pour le cours " Projet web dynamique" .
 
-Groupe : Marcello & Powolny
+Groupe : Marcello & Powolny.
+
 Professeur: Lacroix Pascal.
+
 Design fourni par la section Design.
 
 Consignes 
