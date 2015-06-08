@@ -23,15 +23,9 @@
                     <img src="{{asset('/files/logo.png')}}">
                     <br>Accueil</a>
             </div>
-            <div class="columns medium-12 large-10">
-                <ul class="clearfix text-center " id="menu">
-                    <li><a href="#apropos" id="nav2" class="bg-apropos columns large-3" data-right="100%" data-page="#section2">A propos</a></li>
-                    <li><a href="#lescours" id="nav3" class="bg-lescours columns large-3" data-right="200%" data-page="#section3">Les cours</a></li>
-                    <li><a href="#agenda" id="nav4" class="bg-agenda columns large-3" data-right="300%" data-page="#section4">Agenda</a></li>
-                    <li><a href="#medias" id="nav5" class="bg-medias columns large-3" data-right="400%" data-page="#section5">Medias</a></li>
-                    <li class="show-for-medium-down"><a href="#contact" id="lien-contact2" data-page="#contact-page">Contacts</a></li>
-                </ul>
-            </div>
+            
+             @include('Rubriques.menu')
+            
         </nav>
     </header>
     <div id="pages" class="trans" style="width: 9096px; right: 0%; height: 2188px;">
