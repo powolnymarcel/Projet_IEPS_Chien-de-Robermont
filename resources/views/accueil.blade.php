@@ -73,13 +73,13 @@
 
 
             <article><h2 class="text-center transform titreArticle">Horaire des cours</h2><div class="article row lato  ">
-                    <div class="text-center transform thumb"><img width="424" height="283" src="{{asset('1.jpg')}}" class="attachment-post-thumbnail wp-post-image" alt="Hundetraining"></div>
+                    <div class="text-center transform thumb"><img width="424" height="283" src="{{asset('files/1.jpg')}}" class="attachment-post-thumbnail wp-post-image" alt="Hundetraining"></div>
                     <div>
 
 
-                        @foreach($articles as $articles)
+                        @foreach($articlesAccueil as $articleAccueil)
 
-                            <p> {{!!$articles->texte!!}}</p>
+                            <p> {{!!$articleAccueil->texte!!}}</p>
                         @endforeach
 
 
@@ -140,9 +140,9 @@
 
             <article><h2 class="text-center transform titreArticle ">Horaire des cours</h2><div class="article row lato  "><div class="text-center transform thumb">
                         <img width="424" height="283" src="{{asset('/files/1.jpg')}}" class="attachment-post-thumbnail wp-post-image" alt="Hundetraining"></div><div>
-                        @foreach($articles2 as $article2)
+                        @foreach($articlesLesCours as $articleLesCours)
 
-                            <p> {{$article2->texte}}</p>
+                            <p> {{!!$articleLesCours->texte!!}}</p>
                         @endforeach
 
                         <p>&nbsp;</p>
