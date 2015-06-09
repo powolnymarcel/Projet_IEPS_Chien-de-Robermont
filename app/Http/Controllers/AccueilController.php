@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
-use App\Rubriques;
-use App\Articles;
+use App\Rubrique;
+use App\Article;
 
 class AccueilController extends Controller {
 
@@ -24,16 +24,12 @@ class AccueilController extends Controller {
 
     public function index()
     {
-        $rubriques=Rubriques::where('menu','=',1)->get();
-        $articlesAccueil=Articles::all();
-        
-        $articlesLesCours=Articles::all();
+        $rubriques=Rubrique::with('articles')->where('menu','=',1)->get();
+        $articleAccueil=Article::find(1)->where('rubrique_id','=',1)->first();
 
-       return view('Accueil')
+       return view('accueil')
                ->with('rubriques',$rubriques)
-               ->with('articlesAccueil',$articlesAccueil)
-               ->with('articlesLesCours',$articlesLesCours)
-               
+               ->with('articleAccueil',$articleAccueil)
             ;
 
 

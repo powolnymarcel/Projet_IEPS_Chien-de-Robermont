@@ -31,35 +31,10 @@
 
             <div class="columns medium-12 large-10">
                 <ul class="clearfix text-center " id="menu">
-
-
-             <?php $data=1;$nav=2; ?>
-
-            @foreach($rubriques as $rubrique)
-           <li><a href="#{{ $rubrique->slug }}" id="nav{{ $nav }}" class="bg-{{ $rubrique->slug }} columns large-3" data-right="{{ $data }}00%" data-page="#section{{ $nav }}">{{ $rubrique->titre }}</a></li>
-             <?php $data++;$nav++; ?>
-            @endforeach
+                    
+                    @include('Rubriques.menu')
                 </ul>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         </nav>
     </header>
@@ -72,18 +47,14 @@
 
 
 
-            <article><h2 class="text-center transform titreArticle">Horaire des cours</h2><div class="article row lato  ">
-                    <div class="text-center transform thumb"><img width="424" height="283" src="{{asset('files/1.jpg')}}" class="attachment-post-thumbnail wp-post-image" alt="Hundetraining"></div>
+            <article><h2 class="text-center transform titreArticle">{{$articleAccueil->titre}}</h2><div class="article row lato  ">
+                    <div class="text-center transform thumb"><img width="424" height="283" src="{{asset('files/'.$articleAccueil->photo)}}" class="attachment-post-thumbnail wp-post-image" alt="Hundetraining"></div>
                     <div>
-
-
-                        @foreach($articlesAccueil as $articleAccueil)
-
-                            <p> {{!!$articleAccueil->texte!!}}</p>
-                        @endforeach
-
-
-                    </div></div></article>
+                        {!!$articleAccueil->texte!!}
+                    </div>
+                        
+                </div>
+            </article>
 
 
 
@@ -94,44 +65,8 @@
                 A propos
 
             </h1>
-
-            <article><h2 class="text-center transform titreArticle">Notre méthode de travail</h2><div class="article row lato  "><div class="text-center transform thumb"></div><div><p><span lang="\&quot;FR\&quot;">Nous travaillons d’une manière positive, c’est-à-dire en privilégiant les récompenses plutôt que les sanctions. </span><span lang="\&quot;FR\&quot;">Mais tout mauvais comportement tel que&nbsp;: agressivité, aboiements intempestifs… sera fermement réprimandé.</span></p>
-                        <p><span lang="\&quot;FR\&quot;">Nos objectifs sont l’éducation et l’apprentissage du programme d’obéissance reconnu par l’URCSH.</span></p>
-                        <p class="\&quot;MsoNormal\&quot;"><span lang="\&quot;FR\&quot;">Mais attention, pas d’obéissance sans discipline&nbsp;! Le maitre doit s’investir dans le travail. L’instructeur est là pour le guider dans sa démarche, pas pour le remplacer.</span></p>
-                        <p class="\&quot;MsoNormal\&quot;"><span lang="\&quot;FR\&quot;">Le chien doit obéir à son maitre et ce dernier ne doit jamais oublier que c’est un chien et qu’il faut «&nbsp;penser chien&nbsp;».</span></p>
-                        <p class="\&quot;MsoNormal\&quot;"><span lang="\&quot;FR\&quot;">Le maitre est «&nbsp;le chef&nbsp;» et le chien doit le reconnaître comme tel sinon il y aura conflit.</span></p>
-                    </div></div></article><article><h2 class="text-center transform titreArticle">Nos installations</h2><div class="article row lato  "><div class="text-center transform thumb"><img width="960" height="720" src="{{asset('/files/11.jpg')}}" class="attachment-post-thumbnail wp-post-image" alt="1"></div><div><ul>
-                            <li>Accès facile</li>
-                            <li>Parking aisé</li>
-                            <li>Terrain spacieux clôturé</li>
-                            <li>Local accueillant</li>
-                            <li>Toilettes P.M.R.</li>
-                            <li>Terrasse</li>
-                            <li>Possibilité de promenade aux alentours</li>
-                        </ul>
-                    </div></div></article><article><h2 class="text-center transform titreArticle">Le comité</h2><div class="article row lato  "><div class="text-center transform thumb"></div><div><p><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">Le comité actuel se compose de </span></p>
-                        <ul>
-                            <li><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">Présidente&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; Roland Chantal ( depuis le 16/10/2001)</span></li>
-                            <li><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">Secrétaire&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Deltour Nadine ( depuis 2004)</span></li>
-                            <li><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">Trésorière&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Matwitchouck Magali ( depuis le 14/12/2012)</span></li>
-                            <li><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">Vice-trésorier&nbsp;: Joly willy ( depuis le 27/10/2007)</span></li>
-                        </ul>
-                    </div></div></article><article><h2 class="text-center transform titreArticle">L’historique de notre club</h2><div class="article row lato  "><div class="text-center transform thumb"></div><div><p><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">Le club a été fondé le 5 octobre 1922. Il est directement affilié à l’Union Royale Cynologique de la Saint-Hubert (URCSH), sous le matricule 0080 et appelé «&nbsp;Le Chien de Défense de Robermont&nbsp;»</span></p>
-                        <p><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">Ses activités ont débuté sur un terrain jouxtant le cimetière de Robermont, rue de Herve. En 1974, suite à l’extension de ce dernier, le club s’est établi rue Malvaux à Grivegnée, sur un terrain privé. Jusqu’à cette époque, on travaillait en «&nbsp;ring&nbsp;», ce qui explique la dénomination «&nbsp;Chien de Défense&nbsp;». On y dressait des bergers allemands et des bergers malinois.</span></p>
-                        <p><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">En 1986, l’ancienne buvette est remplacée par un nouveau local, construit par l’équipe et inauguré le 30 janvier 1993.</span></p>
-                        <p><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">Suite à l’évolution et à la demande des amateurs, une section «&nbsp;obéissance&nbsp;» voit le jour le 6 septembre 1991. L’accroissement du nombre de membres nécessite un nouvel horaire d’entrainement. Il prend cours le 14 juillet 1992. A partir de ce moment, les entrainements en ring ont lieu les mardis et les jeudis et ceux des «&nbsp;compagnons&nbsp;» les mercredis et dimanches.</span></p>
-                        <p><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">Le 31 décembre 1996, la section «&nbsp;ring&nbsp;» est définitivement fermée. Plus aucun coucours 1B n’aura désormais lieu.</span></p>
-                        <p><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">En 1996, le club opte pour le statut d’ASBL. </span></p>
-                        <p><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">En aout 2007, suite à la vente du terrain rue Malvaux, l’ASBL est contrainte de chercher un nouvel emplacement.</span></p>
-                        <p><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">En mai 2012, le club s’installe sur un terrain communal, situé voie Mélotte à Grivegnée. Grâce à une équipe dynamique, le club ne cesse de prospérer.</span></p>
-                        <p><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">Le 3 aout 2012, l’URCSH accepte la nouvelle dénomination du club&nbsp;: </span><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">EDUCATION CANINE «&nbsp;LE CHIEN DE ROBERMONT&nbsp;» ASBL</span></p>
-                        <p><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">Le comité actuel se compose de </span></p>
-                        <p><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">– Présidente&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; Roland Chantal ( depuis le 16/10/2001)</span></p>
-                        <p><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">– Secrétaire&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Deltour Nadine ( depuis 2004)</span></p>
-                        <p><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">– Trésorière&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Matwitchouck Magali ( depuis le 14/12/2012)</span></p>
-                        <p><span lang="\&quot;\\&quot;\\\\&quot;\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;FR\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;\\\\\\\\\\\\\\\\&quot;\\\\\\\\&quot;\\\\&quot;\\&quot;\&quot;">– Vice-trésorier&nbsp;: Joly willy ( depuis le 27/10/2007)</span></p>
-                    </div></div></article>
-
+            
+            
 
         </section>
 
@@ -140,11 +75,7 @@
 
             <article><h2 class="text-center transform titreArticle ">Horaire des cours</h2><div class="article row lato  "><div class="text-center transform thumb">
                         <img width="424" height="283" src="{{asset('/files/1.jpg')}}" class="attachment-post-thumbnail wp-post-image" alt="Hundetraining"></div><div>
-                        @foreach($articlesLesCours as $articleLesCours)
-
-                            <p> {{!!$articleLesCours->texte!!}}</p>
-                        @endforeach
-
+                        
                         <p>&nbsp;</p>
                     </div></div></article><article><h2 class="text-center transform titreArticle ">Déroulement des cours</h2><div class="article row lato  "><div class="text-center transform thumb"></div><div><p><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">Les cours ont lieu 2 fois par semaine&nbsp;: mercredi soir et dimanche matin.</span></p>
                         <p><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">Le montant de l’inscription est de 50 euros par an et par chien. </span><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">Pour les chiens supplémentaires de propriétaires vivant à la même adresse, il s’élève à 25 euros par an et par chien.</span></p>
