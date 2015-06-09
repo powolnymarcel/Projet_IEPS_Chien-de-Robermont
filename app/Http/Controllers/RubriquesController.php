@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use App\Rubriques;
+use App\Rubrique;
 
 class RubriquesController extends Controller {
 
@@ -28,7 +28,7 @@ class RubriquesController extends Controller {
 
     public function menu()
     {
-        $rubriques=Rubriques::all();
+        $rubriques=Rubrique::all();
         return view('Rubriques/menu')->with('rubriques',$rubriques);
     }
 
