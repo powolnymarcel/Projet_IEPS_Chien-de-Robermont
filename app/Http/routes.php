@@ -29,3 +29,4 @@ View::creator('Rubriques.menu', function($view)
 {
     $view->with('rubriques', Rubrique::where('menu','=',1)->get());
 });
+

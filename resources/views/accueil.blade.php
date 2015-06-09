@@ -60,55 +60,38 @@
 
         </section>
 
-        <section id="section2" class="page-systeme page-contenu" style="width: 1516px; min-height: 796px;">
-            <h1 class="text-center transform stroke titrePage">
-                A propos
-
-            </h1>
-            
-            
-
-        </section>
-
-        <section id="section3" class="page-systeme page-contenu" style="width: 1516px; min-height: 796px;">
-            <h1 class="text-center transform stroke titrePage">Les cours</h1>
-
-            <article><h2 class="text-center transform titreArticle ">Horaire des cours</h2><div class="article row lato  "><div class="text-center transform thumb">
-                        <img width="424" height="283" src="{{asset('/files/1.jpg')}}" class="attachment-post-thumbnail wp-post-image" alt="Hundetraining"></div><div>
-                        
-                        <p>&nbsp;</p>
-                    </div></div></article><article><h2 class="text-center transform titreArticle ">Déroulement des cours</h2><div class="article row lato  "><div class="text-center transform thumb"></div><div><p><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">Les cours ont lieu 2 fois par semaine&nbsp;: mercredi soir et dimanche matin.</span></p>
-                        <p><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">Le montant de l’inscription est de 50 euros par an et par chien. </span><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">Pour les chiens supplémentaires de propriétaires vivant à la même adresse, il s’élève à 25 euros par an et par chien.</span></p>
-                        <p><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">Les entrainements coutent 2 euros la séance. Ils seront payés spontanément au comptoir avant l’entrainement. ( 1 euro pour les chiens de 3 à 6 mois).</span></p>
-                        <p><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">La première fois, munissez-vous&nbsp;</span></p>
-                        <ul>
-                            <li><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">&nbsp;</span><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">du passeport du chien (carte de vaccination)</span></li>
-                            <li><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">&nbsp;</span><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">d’une laisse d’un mètre 20 plus ou moins</span></li>
-                            <li><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">&nbsp;</span><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">d’un collier (pas de harnais)</span></li>
-                            <li><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">&nbsp;</span><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">d’un jouet</span></li>
-                            <li><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">de friandises.</span></li>
-                        </ul>
-                        <p><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">Vous réglez votre séance et si notre méthode de travail vous satisfait, vous payez le montant de l’affiliation au cours suivant. Vous pouvez vous affilier dès la première fois si votre décision est prise.</span></p>
-                        <p class="\&quot;\\&quot;MsoNormal\\&quot;\&quot;"><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">Les paiements se font en liquide. </span></p>
-                    </div></div></article>
+@foreach($rubriques as $rubrique)
 
 
+        <section id="section{{$rubrique->id}}" class="page-systeme page-contenu" style="width: 1516px; min-height: 796px;">
+
+            @foreach($rubrique->articles as $article)
+
+            <h1 class="text-center transform stroke titrePage">{{$article->titre}}</h1>
+            <article><h2 class="text-center transform titreArticle ">{{$article->titre}}</h2><div class="article row lato  "><div class="text-center transform thumb">
+
+
+                        @if ($article->photo)
+                            <img width="424" height="283" src="{{asset('files/'.$article->photo)}}" class="attachment-post-thumbnail wp-post-image" alt="Hundetraining">
+                        @else
+                        @endif
+
+
+
+
+
+                    </div><div>
+                        <p>{!!$article->texte!!}</p>
+                    </div></div>
+            </article>
+
+            @endforeach
 
         </section>
 
-        <section id="section4" class="page-systeme page-contenu" style="width: 1516px; min-height: 796px;">
-            <h1 class="text-center transform stroke titrePage">Agenda</h1>
-
-            <article><h2 class="text-center transform titreArticle">16/05 : Evenement n°1</h2><div class="article row lato  "><div class="text-center transform thumb"></div><div><p>Cras tortor lorem, imperdiet eget justo sed, tristique dictum lectus. Nullam ligula ex, blandit quis luctus nec, porta eu sem. Etiam rhoncus accumsan tellus. Phasellus tempor ante ac sapien suscipit faucibus.</p>
-                    </div></div></article>
+        @endforeach
 
 
-        </section>
-
-        <section id="section5" class="page-systeme page-contenu" style="width: 1516px; min-height: 796px;">
-            <h1 class="text-center transform stroke titrePage">Medias</h1>
-
-            <article><h2 class="text-center transform titreArticle">Gallerie photo 1</h2><div class="article row lato  "><div class="text-center transform thumb"></div><div>
                         <style type="text/css">
                             #gallery-1 {
                                 margin: auto;
@@ -127,23 +110,9 @@
                             }
                             /* see gallery_shortcode() in wp-includes/media.php */
                         </style>
-                        <div id="gallery-1" class="gallery galleryid-35 gallery-columns-3 gallery-size-thumbnail"><dl class="gallery-item">
-                                <dt class="gallery-icon landscape">
-                                    <a href="{{asset('/files/11.jpg')}}" data-slb-group="35" data-slb-active="1" data-slb-internal="0"><img width="150" height="150" src="{{asset('/files/11-150x150.jpg')}}" class="attachment-thumbnail" alt="1"></a>
-                                </dt></dl><dl class="gallery-item">
-                                <dt class="gallery-icon landscape">
-                                    <a href="{{asset('/files/1.jpg')}}" data-slb-group="35" data-slb-active="1" data-slb-internal="0"><img width="150" height="150" src="{{asset('/files/1-150x150.jpg')}}" class="attachment-thumbnail" alt="Hundetraining"></a>
-                                </dt></dl><dl class="gallery-item">
-                                <dt class="gallery-icon landscape">
-                                    <a href="http://patrogem.be/cdrobermont-wp/wp-content/uploads/2015/05/Koala.jpg" data-slb-group="35" data-slb-active="1" data-slb-internal="0"><img width="150" height="150" src="{{asset('/files/Koala-150x150.jpg')}}" class="attachment-thumbnail" alt="Koala"></a>
-                                </dt></dl><br style="clear: both">
-                        </div>
-
-                    </div></div></article>
 
 
 
-        </section>
 
         <section id="contact-page" class="page-systeme page-contenu" style="width: 1516px; min-height: 796px;">
             <h1 class="text-center transform stroke titrePage">Contacts</h1>
