@@ -25,10 +25,16 @@ class AccueilController extends Controller {
     public function index()
     {
         $rubriques=Rubriques::where('menu','=',1)->get();
-        $articles=Articles::all();
-        $articles2=Articles::all();
+        $articlesAccueil=Articles::all();
+        
+        $articlesLesCours=Articles::all();
 
-       return view('Accueil')->with('rubriques',$rubriques)->with('articles',$articles)->with('articles2',$articles2);
+       return view('Accueil')
+               ->with('rubriques',$rubriques)
+               ->with('articlesAccueil',$articlesAccueil)
+               ->with('articlesLesCours',$articlesLesCours)
+               
+            ;
 
 
 
