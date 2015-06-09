@@ -22,16 +22,45 @@
                 <a href="#" id="home" data-page="#section1">
                     <img src="{{asset('/files/logo.png')}}">
                     <br>Accueil</a>
+
             </div>
+
+
+
+
+
             <div class="columns medium-12 large-10">
                 <ul class="clearfix text-center " id="menu">
-                    <li><a href="#apropos" id="nav2" class="bg-apropos columns large-3" data-right="100%" data-page="#section2">A propos</a></li>
-                    <li><a href="#lescours" id="nav3" class="bg-lescours columns large-3" data-right="200%" data-page="#section3">Les cours</a></li>
-                    <li><a href="#agenda" id="nav4" class="bg-agenda columns large-3" data-right="300%" data-page="#section4">Agenda</a></li>
-                    <li><a href="#medias" id="nav5" class="bg-medias columns large-3" data-right="400%" data-page="#section5">Medias</a></li>
-                    <li class="show-for-medium-down"><a href="#contact" id="lien-contact2" data-page="#contact-page">Contacts</a></li>
+
+
+             <?php $data=1;$nav=2; ?>
+
+            @foreach($rubriques as $rubrique)
+           <li><a href="#{{ $rubrique->slug }}" id="nav{{ $nav }}" class="bg-{{ $rubrique->slug }} columns large-3" data-right="{{ $data }}00%" data-page="#section{{ $nav }}">{{ $rubrique->titre }}</a></li>
+             <?php $data++;$nav++; ?>
+            @endforeach
                 </ul>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </nav>
     </header>
     <div id="pages" class="trans" style="width: 9096px; right: 0%; height: 2188px;">
@@ -43,22 +72,17 @@
 
 
 
-            <article><h2 class="text-center transform titreArticle">Horaire des cours</h2><div class="article row lato  "><div class="text-center transform thumb"><img width="424" height="283" src="{{asset('1.jpg')}}" class="attachment-post-thumbnail wp-post-image" alt="Hundetraining"></div><div><h1>Puppies de 3 à 6 mois</h1>
-                        <p>Mercredi: 17h30 – 18h00</p>
-                        <p>Dimanche: 9h00 – 9h30</p>
-                        <hr>
-                        <h1>Groupe + de 6 mois</h1>
-                        <p>Mercredi: 18h30 – 19h30</p>
-                        <p>Dimanche: 9h30 – 10h30</p>
-                        <hr>
-                        <h1>Groupe 2 et 3</h1>
-                        <p>Mercredi: 19h30 – 20h30</p>
-                        <p>Dimanche: 10h30 – 11h30</p>
-                        <hr>
-                        <h1>Groupe Concours</h1>
-                        <p>Mercredi: 20h30 – 21h30</p>
-                        <p>Dimanche: 11h30 – 12h30</p>
-                        <p>&nbsp;</p>
+            <article><h2 class="text-center transform titreArticle">Horaire des cours</h2><div class="article row lato  ">
+                    <div class="text-center transform thumb"><img width="424" height="283" src="{{asset('1.jpg')}}" class="attachment-post-thumbnail wp-post-image" alt="Hundetraining"></div>
+                    <div>
+
+
+                        @foreach($articles as $articles)
+
+                            <p> {{!!$articles->texte!!}}</p>
+                        @endforeach
+
+
                     </div></div></article>
 
 
@@ -66,7 +90,10 @@
         </section>
 
         <section id="section2" class="page-systeme page-contenu" style="width: 1516px; min-height: 796px;">
-            <h1 class="text-center transform stroke titrePage">A propos</h1>
+            <h1 class="text-center transform stroke titrePage">
+                A propos
+
+            </h1>
 
             <article><h2 class="text-center transform titreArticle">Notre méthode de travail</h2><div class="article row lato  "><div class="text-center transform thumb"></div><div><p><span lang="\&quot;FR\&quot;">Nous travaillons d’une manière positive, c’est-à-dire en privilégiant les récompenses plutôt que les sanctions. </span><span lang="\&quot;FR\&quot;">Mais tout mauvais comportement tel que&nbsp;: agressivité, aboiements intempestifs… sera fermement réprimandé.</span></p>
                         <p><span lang="\&quot;FR\&quot;">Nos objectifs sont l’éducation et l’apprentissage du programme d’obéissance reconnu par l’URCSH.</span></p>
@@ -111,21 +138,13 @@
         <section id="section3" class="page-systeme page-contenu" style="width: 1516px; min-height: 796px;">
             <h1 class="text-center transform stroke titrePage">Les cours</h1>
 
-            <article><h2 class="text-center transform titreArticle ">Horaire des cours</h2><div class="article row lato  "><div class="text-center transform thumb"><img width="424" height="283" src="{{asset('/files/1.jpg')}}" class="attachment-post-thumbnail wp-post-image" alt="Hundetraining"></div><div><h1>Puppies de 3 à 6 mois</h1>
-                        <p>Mercredi: 17h30 – 18h00</p>
-                        <p>Dimanche: 9h00 – 9h30</p>
-                        <hr>
-                        <h1>Groupe + de 6 mois</h1>
-                        <p>Mercredi: 18h30 – 19h30</p>
-                        <p>Dimanche: 9h30 – 10h30</p>
-                        <hr>
-                        <h1>Groupe 2 et 3</h1>
-                        <p>Mercredi: 19h30 – 20h30</p>
-                        <p>Dimanche: 10h30 – 11h30</p>
-                        <hr>
-                        <h1>Groupe Concours</h1>
-                        <p>Mercredi: 20h30 – 21h30</p>
-                        <p>Dimanche: 11h30 – 12h30</p>
+            <article><h2 class="text-center transform titreArticle ">Horaire des cours</h2><div class="article row lato  "><div class="text-center transform thumb">
+                        <img width="424" height="283" src="{{asset('/files/1.jpg')}}" class="attachment-post-thumbnail wp-post-image" alt="Hundetraining"></div><div>
+                        @foreach($articles2 as $article2)
+
+                            <p> {{$article2->texte}}</p>
+                        @endforeach
+
                         <p>&nbsp;</p>
                     </div></div></article><article><h2 class="text-center transform titreArticle ">Déroulement des cours</h2><div class="article row lato  "><div class="text-center transform thumb"></div><div><p><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">Les cours ont lieu 2 fois par semaine&nbsp;: mercredi soir et dimanche matin.</span></p>
                         <p><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">Le montant de l’inscription est de 50 euros par an et par chien. </span><span lang="\&quot;\\&quot;FR\\&quot;\&quot;">Pour les chiens supplémentaires de propriétaires vivant à la même adresse, il s’élève à 25 euros par an et par chien.</span></p>

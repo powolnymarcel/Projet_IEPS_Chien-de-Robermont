@@ -37,6 +37,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('/files/style.css')}}"><link rel="stylesheet" type="text/css" href="{{asset('/files/css')}}"><link rel="stylesheet" type="text/css" href="{{asset('/files/style(1).css')}}"></head>
 <body cz-shortcut-listen="true">
 
+
 @yield('content')
 
 <script type="text/javascript" src="{{asset('/files/jquery.form.min.js')}}"></script>

@@ -1,8 +1,8 @@
 <?php namespace App\Http\Controllers;
-use App\Rubriques;
-use App\Articles;
 
-class AccueilController extends Controller {
+use App\Rubriques;
+
+class RubriquesController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -16,23 +16,24 @@ class AccueilController extends Controller {
 	*/
 
 
+
+
 	/**
 	 * Show the application welcome screen to the user.
 	 *
 	 * @return Response
 	 */
 
-    public function index()
+
+
+    public function menu()
     {
-        $rubriques=Rubriques::where('menu','=',1)->get();
-        $articles=Articles::all();
-        $articles2=Articles::all();
-
-       return view('Accueil')->with('rubriques',$rubriques)->with('articles',$articles)->with('articles2',$articles2);
-
-
-
+        $rubriques=Rubriques::all();
+        return view('Rubriques/menu')->with('rubriques',$rubriques);
     }
+
+
+
 
 
 }
