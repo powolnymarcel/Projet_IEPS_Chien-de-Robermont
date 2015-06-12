@@ -49,8 +49,6 @@ class ArticlesController extends Controller {
     }
 
 
-
-
     public function supprimerArticle($slug){
         $article= Article::where('slug','=',$slug)->first();
         $article->delete();

@@ -13,8 +13,8 @@
 
 <tr>
     <td>Articles</td>
-    <td><a href="{{URL::route('listeArticlesAdmin')}}"><button class="btn btn-default">Liste d'articles</button></a></td>
-    <td><a href="{{URL::route('ajoutArticle')}}"><button class="btn btn-default">Ajouter article.</button></a></td>
+    <td><a href="{{route('listeArticlesAdmin')}}"><button class="btn btn-default">Liste d'articles</button></a></td>
+    <td><a href="{{route('ajoutArticle')}}"><button class="btn btn-default">Ajouter article.</button></a></td>
 </tr>
 
         </tbody>
