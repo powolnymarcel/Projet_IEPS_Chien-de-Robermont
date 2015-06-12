@@ -1,9 +1,11 @@
 @extends('Admin/layout')
 
 @section('content')
-
-
-
+    <hr/>
+<section class="container">
+    <a href="{{route('accueilAdmin')}}"><button class="btn btn-default">Retour au Dashboard</button></a>
+</section>
+    <hr/>
     <table class="table">
         <thead>
         <tr>

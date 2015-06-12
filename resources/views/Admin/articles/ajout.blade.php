@@ -2,7 +2,11 @@
 
 
 @section('content')
-
+    <hr/>
+    <section class="container">
+        <a href="{{route('accueilAdmin')}}"><button class="btn btn-default">Retour au Dashboard</button></a>
+    </section>
+    <hr/>
 
     <form action="{{ route('editerArticles') }}" method="post" >
         <div class="form-group">
