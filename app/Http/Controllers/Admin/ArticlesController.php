@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Rubrique;
 use App\Article;
 
@@ -52,6 +53,13 @@ public function __construct(){
         return view('Admin/articles/liste')->with('articles',$articles);
 
 
+    }
+    
+    public function editerArticles(Request $request){
+        
+        $article = $request->all();
+        
+        
     }
 
 }

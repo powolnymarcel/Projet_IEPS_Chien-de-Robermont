@@ -17,24 +17,14 @@
     @foreach($articles as $article)
         <tr>
             <td>{{$article->titre}}</td>
-            <td><button class=" btn btn-info">Modifier</button></td>
+            <td><a href="{{ URL::route('editerArticles', $article->id) }}"><button class=" btn btn-info">Modifier</button></a></td>
             <td><button class=" btn btn-danger">Supprimer</button></td>
-            <td><button class=" btn btn-danger">Supprimer</button></td>
-
         </tr>
 
 
     @endforeach
     </tbody>
         </table>
-
-
-
-
-
-
-
-
 
 @endsection
 
