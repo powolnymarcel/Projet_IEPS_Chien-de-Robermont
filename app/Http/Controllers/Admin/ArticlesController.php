@@ -1,8 +1,13 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
 use App\Rubrique;
 use App\Article;
 
-class AdminController extends Controller {
+
+class ArticlesController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -29,13 +34,24 @@ public function __construct(){
     public function index()
     {
 
-       return view('Admin/accueil')
 
-            ;
+        $articles=Article::all();
 
+        return view('Admin/accueil');
 
 
     }
 
+
+    public function listeArticles()
+    {
+
+
+        $articles=Article::all();
+
+        return view('Admin/articles/liste')->with('articles',$articles);
+
+
+    }
 
 }
