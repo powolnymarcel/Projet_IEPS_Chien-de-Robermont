@@ -5,6 +5,7 @@
     <hr/>
     <section class="container">
         <a href="{{route('accueilAdmin')}}"><button class="btn btn-default">Retour au Dashboard</button></a>
+        <a href="{{route('listeArticlesAdmin')}}"><button class="btn btn-info">Retour à la liste des articles</button></a>
     </section>
     <hr/>
 
@@ -45,8 +46,8 @@
         <div class="form-group">
 
         <select name="rubrique_id" id="">
-            @foreach ($rubs as $rub)
-                <option value="{{ $rub->id}}" >{{ $rub->titre }}</option>
+            @foreach ($rubriques as $rubrique)
+                <option value="{{ $rubrique->id}}" >{{ $rubrique->titre }}</option>
             @endforeach
         </select>
         </div>

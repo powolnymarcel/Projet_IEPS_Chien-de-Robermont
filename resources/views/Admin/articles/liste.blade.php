@@ -4,6 +4,7 @@
     <hr/>
 <section class="container">
     <a href="{{route('accueilAdmin')}}"><button class="btn btn-default">Retour au Dashboard</button></a>
+    <a href="{{route('ajoutArticle')}}"><button class="btn btn-info">Ajouter un article</button></a>
 </section>
     <hr/>
     <table class="table">

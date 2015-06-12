@@ -59,8 +59,8 @@ class ArticlesController extends Controller {
 
 
     public function ajoutArticle(){
-        $rub= Rubrique::all();
-        return view('Admin/articles/ajout')->with('rubs',$rub);
+        $rubriques= Rubrique::all();
+        return view('Admin/articles/ajout')->with('rubriques',$rubriques);
     }
 
     
