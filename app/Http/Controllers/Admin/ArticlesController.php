@@ -59,7 +59,7 @@ class ArticlesController extends Controller {
 
 
     public function ajoutArticle(){
-        $rubriques= Rubrique::all();
+        $rubriques= Rubrique::where('menu','=',1)->get();
         return view('Admin/articles/ajout')->with('rubriques',$rubriques);
     }
 

@@ -23,6 +23,9 @@ Route::controllers([
 ]);
 
 
+
+
+
 Route::get('/',[
     'as'=>'accueil',
     'uses' =>'AccueilController@index']);
