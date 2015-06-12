@@ -32,4 +32,8 @@ View::creator('Rubriques.menu', function($view)
 
 Route::get('/admin',[
     'as'=>'accueilAdmin',
-    'uses' =>'AdminController@index']);
+    'uses' =>'Admin\ArticlesController@index']);
+
+Route::get('/admin/listeArticles',[
+    'as'=>'listeArticlesAdmin',
+    'uses' =>'Admin\ArticlesController@listeArticles']);
