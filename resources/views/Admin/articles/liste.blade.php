@@ -19,7 +19,6 @@
             <td>{{$article->titre}}</td>
             <td><button class=" btn btn-info">Modifier</button></td>
             <td><button class=" btn btn-danger">Supprimer</button></td>
-            <td><button class=" btn btn-danger">Supprimer</button></td>
 
         </tr>
 
