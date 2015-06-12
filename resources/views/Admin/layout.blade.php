@@ -9,7 +9,10 @@
 <body >
 
 <main class="container">
-    <h1>Bienvenue dans votre dashboard !</h1>
+
+    @yield('title','   <h1>Bienvenue dans votre dashboard !</h1>')
+
+
     @yield('content')
 
 
