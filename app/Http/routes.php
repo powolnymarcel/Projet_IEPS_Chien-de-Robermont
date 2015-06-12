@@ -17,10 +17,10 @@ use App\Rubrique;
 //
 //Route::get('home', 'HomeController@index');
 //
-//Route::controllers([
-//	'auth' => 'Auth\AuthController',
-//	'password' => 'Auth\PasswordController',
-//]);
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
 
 
 Route::get('/', 'AccueilController@index');
@@ -30,3 +30,4 @@ View::creator('Rubriques.menu', function($view)
     $view->with('rubriques', Rubrique::where('menu','=',1)->get());
 });
 
+Route::get('/admin', 'AdminController@index');
