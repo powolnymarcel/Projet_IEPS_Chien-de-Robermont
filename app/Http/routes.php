@@ -23,11 +23,13 @@ Route::controllers([
 ]);
 
 
-Route::get('/', 'AccueilController@index');
+Route::get('/', 'AccueilController@index',['as'=>'accueil']);
 
 View::creator('Rubriques.menu', function($view)
 {
     $view->with('rubriques', Rubrique::where('menu','=',1)->get());
 });
 
-Route::get('/admin', 'AdminController@index');
+Route::get('/admin',[
+    'as'=>'accueilAdmin',
+    'uses' =>'AdminController@index']);
