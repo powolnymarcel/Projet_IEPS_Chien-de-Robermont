@@ -3,6 +3,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le chien de Robermont ASBL | Un site utilisant WordPress</title>
+    <script src="http://cdn.ckeditor.com/4.4.7/standard/ckeditor.js"></script>
+
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 <body >
 
@@ -22,7 +24,6 @@
     </section>
 
 </footer>
-
 </body>
 
 </html>

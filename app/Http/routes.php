@@ -43,8 +43,6 @@ Route::get('/admin/ajoutArticle',[
     'uses' =>'Admin\ArticlesController@ajoutArticle']);
 
 
-
-
 Route::post('/admin/editerArticles',[
     'as'=>'editerArticles',
     'uses' =>'Admin\ArticlesController@editerArticles']);

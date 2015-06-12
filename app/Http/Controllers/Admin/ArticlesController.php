@@ -50,15 +50,22 @@ class ArticlesController extends Controller {
 
     public function ajoutArticle(){
 
-        return view('Admin/articles/ajout');
+
+
+
+
+        $rub= Rubrique::all();
+
+        return view('Admin/articles/ajout')->with('rubs',$rub);
 
     }
 
     
     public function editerArticles(Request $request){
-        
-        var_dump( $request->isMethod('post'));
-        die;
+        $parameters =$request->except('_token');
+
+        Article::create($parameters);
+        return redirect()->route('listeArticlesAdmin');
 
         
     }
