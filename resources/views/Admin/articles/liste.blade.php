@@ -20,7 +20,7 @@
         <tr>
             <td>{{$article->titre}}</td>
             <td><a href="{{ route('ajoutArticle', $article->id) }}"><button class=" btn btn-info">Modifier</button></a></td>
-            <td><button class=" btn btn-danger">Supprimer</button></td>
+            <td><a href="{{ route('supprimerArticle', ['slug' =>$article->slug]) }}"><button class=" btn btn-danger">Supprimer</button></a></td>
         </tr>
 
 

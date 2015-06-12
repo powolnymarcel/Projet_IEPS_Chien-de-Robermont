@@ -2,14 +2,24 @@
 
 @section('content')
 
-    <nav class="row">
-        <ul>
-            <li><a href="{{URL::route('listeArticlesAdmin')}}">Liste d'articles</a>
+    <table class="table" >
+
+        <tbody>
+
+        <tr>
+            <td>Retour au site web</td>
+            <td><a href="{{route('accueil')}}"><button class="btn btn-default">Retour</button></a></td>
+        </tr>
+
+<tr>
+    <td>Articles</td>
+    <td><a href="{{URL::route('listeArticlesAdmin')}}"><button class="btn btn-default">Liste d'articles</button></a></td>
+    <td><a href="{{URL::route('ajoutArticle')}}"><button class="btn btn-default">Ajouter article.</button></a></td>
+</tr>
+
+        </tbody>
+    </table>
 
 
-            </li>
-            <li><a href="{{URL::route('ajoutArticle')}}">Ajouter article.</a></li>
-        </ul>
-    </nav>
 
     @endsection

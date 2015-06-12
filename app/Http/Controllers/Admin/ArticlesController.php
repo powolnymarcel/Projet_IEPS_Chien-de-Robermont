@@ -48,26 +48,26 @@ class ArticlesController extends Controller {
         return view('Admin/articles/liste')->with('articles',$articles);
     }
 
+
+
+
+    public function supprimerArticle($slug){
+        $article= Article::where('slug','=',$slug)->first();
+        $article->delete();
+        return redirect()->route('listeArticlesAdmin')->with('success','Article supprimé');
+    }
+
+
     public function ajoutArticle(){
-
-
-
-
-
         $rub= Rubrique::all();
-
         return view('Admin/articles/ajout')->with('rubs',$rub);
-
     }
 
     
     public function editerArticles(Request $request){
         $parameters =$request->except('_token');
-
         Article::create($parameters);
         return redirect()->route('listeArticlesAdmin');
-
-        
     }
 
 }

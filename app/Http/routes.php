@@ -23,7 +23,9 @@ Route::controllers([
 ]);
 
 
-Route::get('/', 'AccueilController@index',['as'=>'accueil']);
+Route::get('/',[
+    'as'=>'accueil',
+    'uses' =>'AccueilController@index']);
 
 View::creator('Rubriques.menu', function($view)
 {
@@ -43,6 +45,10 @@ Route::get('/admin/ajoutArticle',[
     'uses' =>'Admin\ArticlesController@ajoutArticle']);
 
 
-Route::post('/admin/editerArticles',[
+Route::post('/admin/editerArticles/{slug}',[
     'as'=>'editerArticles',
     'uses' =>'Admin\ArticlesController@editerArticles']);
+
+Route::get('/admin/supprimerArticle/{slug}',[
+    'as'=>'supprimerArticle',
+    'uses' =>'Admin\ArticlesController@supprimerArticle']);

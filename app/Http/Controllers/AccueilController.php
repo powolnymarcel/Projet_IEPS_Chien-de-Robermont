@@ -25,12 +25,11 @@ class AccueilController extends Controller {
     public function index()
     {
         $rubriques=Rubrique::with('articles')->where('menu','=',1)->get();
-        $articleAccueil=Article::find(1)->where('rubrique_id','=',1)->first();
-       return view('accueil')
-               ->with('rubriques',$rubriques)
-           ->with('articleAccueil',$articleAccueil)
-            ;
 
+        $articleAccueil=Article::find(1)->where('rubrique_id','=',1)->first();
+         return view('accueil')
+                ->with('rubriques',$rubriques)
+                ->with('articleAccueil',$articleAccueil);
 
 
     }
