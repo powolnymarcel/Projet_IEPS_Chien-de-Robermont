@@ -3,7 +3,7 @@
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model {
-protected $fillable=['titre','sluf','texte','photo','rubrique_id'];
+protected $fillable=['titre','slug','texte','photo','rubrique_id'];
 
     public function rubrique(){
 

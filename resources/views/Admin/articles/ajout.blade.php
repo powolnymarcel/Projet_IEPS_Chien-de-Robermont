@@ -21,8 +21,9 @@
 
         <div class="form-group">
 
+            <label for="texte">Modifier le texte</label>
 
-            <textarea name="texte"></textarea>
+            <textarea name="texte" id="texte"></textarea>
             <script>
                 CKEDITOR.replace( 'texte' );
             </script>
