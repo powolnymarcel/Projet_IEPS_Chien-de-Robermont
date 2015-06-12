@@ -14,7 +14,7 @@
         </div>
     @endif
    
-    <form action="{{ URL::route('editerArticles', $articles->id) }}" method="post" >
+    <form action="{{ route('editerArticles', $articles->id) }}" method="post" >
         <div class="form-group">
             <label for="titre">Modifier le titre</label>
             <input type="text" name="titre" id="titre" value="{{ $articles->titre }}" required="required" />
@@ -35,7 +35,6 @@
             <input type="file" name="photo" id="photo" accept="image/*" />
         </div>
                
-        <input name="_method" type="hidden" value="PUT">
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
         <input type="submit" />

@@ -37,3 +37,14 @@ Route::get('/admin',[
 Route::get('/admin/listeArticles',[
     'as'=>'listeArticlesAdmin',
     'uses' =>'Admin\ArticlesController@listeArticles']);
+
+Route::get('/admin/ajoutArticle',[
+    'as'=>'ajoutArticle',
+    'uses' =>'Admin\ArticlesController@ajoutArticle']);
+
+
+
+
+Route::post('/admin/editerArticles',[
+    'as'=>'editerArticles',
+    'uses' =>'Admin\ArticlesController@editerArticles']);

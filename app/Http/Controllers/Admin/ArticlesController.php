@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Rubrique;
 use App\Article;
 
@@ -21,10 +22,9 @@ class ArticlesController extends Controller {
 	|
 	*/
 
-public function __construct(){
-    $this->middleware('auth');
-}
-
+        public function __construct(){
+            $this->middleware('auth');
+        }
 
     /**
 	 * Show the application welcome screen to the user.
@@ -34,31 +34,32 @@ public function __construct(){
 
     public function index()
     {
-
-
         $articles=Article::all();
 
-        return view('Admin/accueil');
-
+        return view('Admin/accueil' );
 
     }
 
 
     public function listeArticles()
     {
-
-
         $articles=Article::all();
 
         return view('Admin/articles/liste')->with('articles',$articles);
+    }
 
+    public function ajoutArticle(){
+
+        return view('Admin/articles/ajout');
 
     }
+
     
     public function editerArticles(Request $request){
         
-        $article = $request->all();
-        
+        var_dump( $request->isMethod('post'));
+        die;
+
         
     }
 
