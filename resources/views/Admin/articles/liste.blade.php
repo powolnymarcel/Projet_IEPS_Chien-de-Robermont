@@ -21,7 +21,7 @@
         <tr>
             <td>{{$article->titre}}</td>
             <td><a href="{{ route('ajoutArticle', $article->id) }}"><button class=" btn btn-info">Modifier</button></a></td>
-            <td><a href="{{ route('supprimerArticle', ['slug' =>$article->slug]) }}"><button class=" btn btn-danger">Supprimer</button></a></td>
+            <td><a href="{{ route('supprimerArticle', ['slug' =>$article->slug]) }}" onclick="return confirm('Etes vous certain de vouloir supprimer ?');"><button class=" btn btn-danger">Supprimer</button></a></td>
         </tr>
 
 

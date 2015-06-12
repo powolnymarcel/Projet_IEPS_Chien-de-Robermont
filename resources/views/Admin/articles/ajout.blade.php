@@ -44,14 +44,15 @@
 
 
         <div class="form-group">
+            <label for="rubrique">Dans la rubrique</label>
 
-        <select name="rubrique_id" id="">
+        <select name="rubrique_id" id="rubrique">
             @foreach ($rubriques as $rubrique)
                 <option value="{{ $rubrique->id}}" >{{ $rubrique->titre }}</option>
             @endforeach
         </select>
         </div>
 
-        <input type="submit" />
+        <input type="submit" class="btn btn-success btn-lg" />
     </form>
 @stop
