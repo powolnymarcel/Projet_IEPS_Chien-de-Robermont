@@ -12,7 +12,7 @@
     <form action="{{ route('ajoutArticleDB') }}" method="post" >
         <div class="form-group">
             <label for="titre">Modifier le titre</label>
-            <input class="form-control" type="text" name="titre" id="titre" value="" required="required" />
+            <input class="form-control" type="text" name="titre" id="titre" value="{{ $article->titre or ''}}" required="required" />
         </div>
 
 
@@ -20,7 +20,7 @@
 
             <label for="texte">Modifier le texte</label>
 
-            <textarea class="form-control" name="texte" id="texte"></textarea>
+            <textarea class="form-control" name="texte" id="texte">{{ $article->texte or ''}}</textarea>
             <script>
                 CKEDITOR.replace( 'texte' );
             </script>
@@ -41,7 +41,7 @@
         <select name="rubrique_id" id="rubrique">
 
             @foreach ($rubriques as $rubrique)
-                <option value="{{ $rubrique->id}}" >{{ $rubrique->titre }}</option>
+                <option value="{{ $rubrique->id}}" @if($rubrique->id == $article->rubrique_id) selected="selected" @endif" >{{ $rubrique->titre }}</option>
             @endforeach
         </select>
         </div>

@@ -44,9 +44,18 @@ class ArticlesController extends Controller {
 
         //Vu que Accueil et contact sont statique
         $articles=Article::where('rubrique_id','!=',6)->where('rubrique_id','!=',1)->get();
-        
+
         return view('Admin/articles/liste')->with('articles',$articles)->with('rubriques',$rubriques);
     }
+
+    public function editerArticle($slug)
+    {
+        $article= Article::where('slug','=',$slug)->first();
+        $rubriques= Rubrique::where('menu','=',1)->get();
+
+        return view('Admin/articles/ajout')->with('article',$article)->with('rubriques',$rubriques);
+    }
+
 
     //SUPPRESSION D'UN ARTICLE
     public function supprimerArticle($slug)
