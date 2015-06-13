@@ -6,7 +6,7 @@
     <section class="container">
         <a href="{{route('accueilAdmin')}}"><button class="btn btn-default">Retour au Dashboard</button></a>
         <a href="{{route('listeArticlesAdmin')}}"><button class="btn btn-info">Retour à la liste des articles</button></a>
-    </section>
+
     <hr/>
 
     <form action="{{ isset($article->slug)? route('editerArticle',['slug'=>$article->slug]): route('ajoutArticleDB') }}" method="post" >
@@ -52,5 +52,5 @@
 
         <input type="submit" class="btn btn-success btn-lg" />
         <input type="reset" value="Effacer" class="btn btn-warning  btn-lg" />
-    </form>
+    </form>   </section>
 @stop
