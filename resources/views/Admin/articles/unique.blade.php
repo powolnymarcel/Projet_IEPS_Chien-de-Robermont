@@ -14,22 +14,27 @@
             <h4><u>Id de l'article: </u></h4>
             <p><strong>{{$article->id}}</strong></p><br/>
 
-            <h4><u>titre de l'article: </u></h4>
+            <h4><u>Titre de l'article: </u></h4>
             <p><strong>{{$article->titre}}</strong></p><br/>
 
-            <h4><u>slug de l'article: </u></h4>
+            <h4><u>Affichage dans l'URL: </u></h4>
             <p><strong>{{$article->slug}}</strong></p><br/>
 
-            <h4><u>texte de l'article: </u></h4>
+            <h4><u>Texte de l'article: </u></h4>
             <article style="border: 1px solid black">
             <p>{!!$article->texte!!}</p><br/>
             </article>
-            <h4><u>photo de l'article: </u></h4>
-            <p><strong>{{$article->photo}}</strong></p><br/>
 
-            <h4><u>rubrique_id de l'article: </u></h4>
-            <p><strong>{{$article->rubrique_id}}</strong></p><br/>
+        @if($article->photo)
+            <h4><u>Photo de l'article: </u></h4>
+            <img src="{{asset('files/'.$article->photo)}}" alt=""/>
 
+        @endif
+
+            <h4><u>Rubrique de l'article: </u></h4>
+            @foreach($rub as $r)
+            <p><strong>{{$r->titre}}</strong></p><br/>
+            @endforeach
 
 
     </section>

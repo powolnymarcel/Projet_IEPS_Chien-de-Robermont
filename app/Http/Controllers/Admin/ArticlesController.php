@@ -60,12 +60,14 @@ class ArticlesController extends Controller {
     }
 
     // AFFICHAGE DU FORMULAIRE D'AJOUT D'UN ARTICLE
-    public function uniqueArticle($slug)
+    public function uniqueArticle($rubrique,$slug)
     {
-        $article= Article::find($slug);
+        $rub= Rubrique::where('id','=',$rubrique)->get();
+        $article= Article::where('slug','=',$slug)->first();
+
        // Le where ou le find ... le find n'aura pas de foreach dans la vue alors que le where j'en aurais besoin
         // EX : $article= Article::where('slug','=',$slug)->get();
-        return view('Admin/articles/unique')->with('article',$article);
+        return view('Admin/articles/unique')->with('rub',$rub)->with('article',$article);
     }
 
 
