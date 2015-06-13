@@ -6,6 +6,14 @@
     <a href="{{route('accueilAdmin')}}"><button class="btn btn-default">Retour au Dashboard</button></a>
     <a href="{{route('ajoutArticle')}}"><button class="btn btn-info">Ajouter un article</button></a>
 </section>
+
+    @if(Session::has('success'))
+        <br/>
+    <div class="alert alert-success">
+        {{Session::get('success')}}
+    </div>
+@endif
+
     <hr/>
     <table class="table">
         <thead>
@@ -14,9 +22,6 @@
         </tr>
         </thead>
         <tbody>
-
-
-
     @foreach($articles as $article)
         <tr>
             <td>{{$article->titre}}</td>

@@ -6,6 +6,7 @@
     <script src="http://cdn.ckeditor.com/4.4.7/standard/ckeditor.js"></script>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/styleAdmin.css')}}">
 <body >
 
 <main class="container">

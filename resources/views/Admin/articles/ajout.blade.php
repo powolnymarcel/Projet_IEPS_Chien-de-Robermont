@@ -9,22 +9,22 @@
     </section>
     <hr/>
 
-    <form action="{{ route('editerArticles') }}" method="post" >
+    <form action="{{ route('ajoutArticleDB') }}" method="post" >
         <div class="form-group">
             <label for="titre">Modifier le titre</label>
-            <input type="text" name="titre" id="titre" value="" required="required" />
+            <input class="form-control" type="text" name="titre" id="titre" value="" required="required" />
         </div>
         
     <div class="form-group">
             <label for="titre">Modifier le slug</label>
-            <input type="text" name="slug" id="slug" value="" required="required" />
+            <input class="form-control" type="text" name="slug" id="slug" value="" required="required" />
         </div>
 
         <div class="form-group">
 
             <label for="texte">Modifier le texte</label>
 
-            <textarea name="texte" id="texte"></textarea>
+            <textarea class="form-control" name="texte" id="texte"></textarea>
             <script>
                 CKEDITOR.replace( 'texte' );
             </script>
@@ -33,7 +33,7 @@
 
         <div class="form-group">
             <label for="photo">Modifier la photo</label>
-            <input type="file" name="photo" id="photo" accept="image/*" />
+            <input  type="file" name="photo" id="photo" accept="image/*" />
         </div>
 
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
@@ -54,5 +54,6 @@
         </div>
 
         <input type="submit" class="btn btn-success btn-lg" />
+        <input type="reset" value="Effacer" class="btn btn-warning  btn-lg" />
     </form>
 @stop

@@ -5,7 +5,7 @@
     <h1>Editer {{ $articles->titre }}</h1>
 
 
-    <form action="{{ route('editerArticles', $articles->id) }}" method="post" >
+    <form action="{{ route('ajoutArticleDB', $articles->id) }}" method="post" >
         <div class="form-group">
             <label for="titre">Modifier le titre</label>
             <input type="text" name="titre" id="titre" value="{{ $articles->titre }}" required="required" />

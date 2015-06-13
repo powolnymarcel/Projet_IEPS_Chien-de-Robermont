@@ -31,16 +31,13 @@ class ArticlesController extends Controller {
 	 *
 	 * @return Response
 	 */
-
+       // Affichage de la pagge DASHBOARD
     public function index()
     {
-        $articles=Article::all();
-
         return view('Admin/accueil' );
-
     }
 
-
+    // AFFICHAGE DE LA LISTE DES ARTICLES
     public function listeArticles()
     {
         $articles=Article::all();
@@ -48,24 +45,24 @@ class ArticlesController extends Controller {
         return view('Admin/articles/liste')->with('articles',$articles);
     }
 
-
+    //SUPPRESSION D'UN ARTICLE
     public function supprimerArticle($slug){
         $article= Article::where('slug','=',$slug)->first();
         $article->delete();
         return redirect()->route('listeArticlesAdmin')->with('success','Article supprimé');
     }
 
-
+    // AFFICHAGE DU FORMULAIRE D'AJOUT D'UN ARTICLE
     public function ajoutArticle(){
         $rubriques= Rubrique::where('menu','=',1)->get();
         return view('Admin/articles/ajout')->with('rubriques',$rubriques);
     }
 
-    
-    public function editerArticles(Request $request){
+    // AJOUT D'UN ARTICLE DANS LA B.D.
+    public function ajoutArticleDB(Request $request){
         $parameters =$request->except('_token');
         Article::create($parameters);
-        return redirect()->route('listeArticlesAdmin');
+        return redirect()->route('listeArticlesAdmin')->with('success','Article ajouté.');
     }
 
 }

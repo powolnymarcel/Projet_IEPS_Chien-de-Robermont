@@ -24,8 +24,6 @@ Route::controllers([
 
 
 
-
-
 Route::get('/',[
     'as'=>'accueil',
     'uses' =>'AccueilController@index']);
@@ -35,6 +33,9 @@ View::creator('Rubriques.menu', function($view)
     $view->with('rubriques', Rubrique::where('menu','=',1)->get());
 });
 
+
+
+ // ROUTES CONCERNANT LA PARTIE ADMINISTRATION
 Route::get('/admin',[
     'as'=>'accueilAdmin',
     'uses' =>'Admin\ArticlesController@index']);
@@ -48,9 +49,9 @@ Route::get('/admin/ajoutArticle',[
     'uses' =>'Admin\ArticlesController@ajoutArticle']);
 
 
-Route::post('/admin/editerArticles/{slug}',[
-    'as'=>'editerArticles',
-    'uses' =>'Admin\ArticlesController@editerArticles']);
+Route::post('/admin/ajoutArticleDB',[
+    'as'=>'ajoutArticleDB',
+    'uses' =>'Admin\ArticlesController@ajoutArticleDB']);
 
 Route::get('/admin/supprimerArticle/{slug}',[
     'as'=>'supprimerArticle',
