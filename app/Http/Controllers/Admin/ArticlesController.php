@@ -40,8 +40,12 @@ class ArticlesController extends Controller {
     // AFFICHAGE DE LA LISTE DES ARTICLES
     public function listeArticles()
     {
-        $articles=Article::all();
-        return view('Admin/articles/liste')->with('articles',$articles);
+        $rubriques= Rubrique::where('menu','=',1)->get();
+
+        //Vu que Accueil et contact sont statique
+        $articles=Article::where('rubrique_id','!=',6)->where('rubrique_id','!=',1)->get();
+        
+        return view('Admin/articles/liste')->with('articles',$articles)->with('rubriques',$rubriques);
     }
 
     //SUPPRESSION D'UN ARTICLE
