@@ -14,6 +14,13 @@
     @yield('title','   <h1>Bienvenue dans votre dashboard !</h1>')
 
 
+    @if(Session::has('success'))
+        <br/>
+        <div class="alert alert-success">
+            {{Session::get('success')}}
+        </div>
+    @endif
+
     @yield('content')
 
 

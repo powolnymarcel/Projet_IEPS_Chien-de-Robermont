@@ -49,6 +49,10 @@ Route::get('/admin/ajoutArticle',[
     'uses' =>'Admin\ArticlesController@ajoutArticle']);
 
 
+Route::get('/admin/uniqueArticle/{id}',[
+    'as'=>'uniqueArticle',
+    'uses' =>'Admin\ArticlesController@uniqueArticle']);
+
 Route::post('/admin/ajoutArticleDB',[
     'as'=>'ajoutArticleDB',
     'uses' =>'Admin\ArticlesController@ajoutArticleDB']);

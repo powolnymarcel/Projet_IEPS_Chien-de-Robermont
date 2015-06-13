@@ -21,11 +21,10 @@ class ArticlesController extends Controller {
 	| controllers, you are free to modify or remove it as you desire.
 	|
 	*/
-
-        public function __construct(){
+        public function __construct()
+        {
             $this->middleware('auth');
         }
-
     /**
 	 * Show the application welcome screen to the user.
 	 *
@@ -41,27 +40,49 @@ class ArticlesController extends Controller {
     public function listeArticles()
     {
         $articles=Article::all();
-
         return view('Admin/articles/liste')->with('articles',$articles);
     }
 
     //SUPPRESSION D'UN ARTICLE
-    public function supprimerArticle($slug){
+    public function supprimerArticle($slug)
+    {
         $article= Article::where('slug','=',$slug)->first();
         $article->delete();
         return redirect()->route('listeArticlesAdmin')->with('success','Article supprimé');
     }
 
     // AFFICHAGE DU FORMULAIRE D'AJOUT D'UN ARTICLE
-    public function ajoutArticle(){
+    public function ajoutArticle()
+    {
         $rubriques= Rubrique::where('menu','=',1)->get();
         return view('Admin/articles/ajout')->with('rubriques',$rubriques);
     }
 
+    // AFFICHAGE DU FORMULAIRE D'AJOUT D'UN ARTICLE
+    public function uniqueArticle($id)
+    {
+        $article= Article::where('id','=',$id)->get();
+        return view('Admin/articles/unique')->with('article',$article);
+    }
+
+
+
     // AJOUT D'UN ARTICLE DANS LA B.D.
-    public function ajoutArticleDB(Request $request){
+    public function ajoutArticleDB(Request $request)
+    {
+        //Methode fénéant ;)
         $parameters =$request->except('_token');
         Article::create($parameters);
+
+       // Méthode à la Mano ...
+       // $articles = new Article();
+       // $articles->titre= $parameters['titre'];
+       // $articles->slug= $parameters['slug'];
+       // $articles->texte= $parameters['texte'];
+       // $articles->photo= $parameters['photo'];
+       // $articles->texte= $parameters['texte'];
+       // $articles->rubrique_id= $parameters['rubrique_id'];
+       // $articles->save();
         return redirect()->route('listeArticlesAdmin')->with('success','Article ajouté.');
     }
 
