@@ -33,6 +33,7 @@
         </div>
 
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+        <input type="hidden" name="slug" value="{{ $article->slug or '' }}" />
 
 
         <div class="form-group">
@@ -41,7 +42,11 @@
         <select name="rubrique_id" id="rubrique">
 
             @foreach ($rubriques as $rubrique)
-                <option value="{{ $rubrique->id}}" @if($rubrique->id == $article->rubrique_id) selected="selected" @endif" >{{ $rubrique->titre }}</option>
+                <option value="{{ $rubrique->id}}"
+                        @if(isset( $articles))
+                            @if($rubrique->id == $article->rubrique_id) selected="selected" @endif
+                        @endif
+                        >{{ $rubrique->titre }}</option>
             @endforeach
         </select>
         </div>

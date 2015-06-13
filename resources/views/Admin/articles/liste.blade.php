@@ -4,7 +4,7 @@
     <hr/>
 <section class="container">
     <a href="{{route('accueilAdmin')}}"><button class="btn btn-default">Retour à l'accueil Admin</button></a>
-    <a href="{{route('ajoutArticle')}}"><button class="btn btn-info">Ajouter un article</button></a>
+    <a href="{{route('ajoutArticle')}}"><button class="btn btn-warning">Ajouter un article</button></a>
 </section>
 
 
