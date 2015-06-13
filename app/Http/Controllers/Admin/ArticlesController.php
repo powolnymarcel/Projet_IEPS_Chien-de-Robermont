@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Rubrique;
 use App\Article;
+use Illuminate\Support\Str;
 
 
 class ArticlesController extends Controller {
@@ -59,9 +60,11 @@ class ArticlesController extends Controller {
     }
 
     // AFFICHAGE DU FORMULAIRE D'AJOUT D'UN ARTICLE
-    public function uniqueArticle($id)
+    public function uniqueArticle($slug)
     {
-        $article= Article::where('id','=',$id)->get();
+        $article= Article::find($slug);
+       // Le where ou le find ... le find n'aura pas de foreach dans la vue alors que le where j'en aurais besoin
+        // EX : $article= Article::where('slug','=',$slug)->get();
         return view('Admin/articles/unique')->with('article',$article);
     }
 
@@ -70,19 +73,20 @@ class ArticlesController extends Controller {
     // AJOUT D'UN ARTICLE DANS LA B.D.
     public function ajoutArticleDB(Request $request)
     {
-        //Methode fénéant ;)
         $parameters =$request->except('_token');
-        Article::create($parameters);
+        //Methode fénéant ;)
+        // Article::create($parameters);
 
-       // Méthode à la Mano ...
-       // $articles = new Article();
-       // $articles->titre= $parameters['titre'];
-       // $articles->slug= $parameters['slug'];
-       // $articles->texte= $parameters['texte'];
-       // $articles->photo= $parameters['photo'];
-       // $articles->texte= $parameters['texte'];
-       // $articles->rubrique_id= $parameters['rubrique_id'];
-       // $articles->save();
+        //Méthode à la Mano ...
+        $date= new \DateTime(null);
+        $articles = new Article();
+        $articles->titre= $parameters['titre'];
+        $articles->slug= Str::slug($parameters['titre']. $date->format('dmYhis'));
+        $articles->texte= $parameters['texte'];
+        $articles->photo= $parameters['photo'];
+        $articles->texte= $parameters['texte'];
+        $articles->rubrique_id= $parameters['rubrique_id'];
+        $articles->save();
         return redirect()->route('listeArticlesAdmin')->with('success','Article ajouté.');
     }
 

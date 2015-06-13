@@ -49,7 +49,7 @@ Route::get('/admin/ajoutArticle',[
     'uses' =>'Admin\ArticlesController@ajoutArticle']);
 
 
-Route::get('/admin/uniqueArticle/{id}',[
+Route::get('/admin/uniqueArticle/{rubrique}/{slug}',[
     'as'=>'uniqueArticle',
     'uses' =>'Admin\ArticlesController@uniqueArticle']);
 

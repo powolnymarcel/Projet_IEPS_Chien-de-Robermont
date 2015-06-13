@@ -14,11 +14,7 @@
             <label for="titre">Modifier le titre</label>
             <input class="form-control" type="text" name="titre" id="titre" value="" required="required" />
         </div>
-        
-    <div class="form-group">
-            <label for="titre">Modifier le slug</label>
-            <input class="form-control" type="text" name="slug" id="slug" value="" required="required" />
-        </div>
+
 
         <div class="form-group">
 
