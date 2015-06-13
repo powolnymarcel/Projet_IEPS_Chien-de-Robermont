@@ -5,6 +5,7 @@
 <section class="container">
     <a href="{{route('accueilAdmin')}}"><button class="btn btn-default">Retour à l'accueil Admin</button></a> &nbsp;&nbsp;
     <a href="{{route('ajoutArticle')}}"><button class="btn btn-success">Ajouter un article</button></a>&nbsp; &nbsp;
+    <a href="{{ route('editerArticle', $article->slug) }}"><button class="btn btn-warning">Modifier cet  article</button></a>&nbsp; &nbsp;
     <a href="{{route('listeArticlesAdmin')}}"><button class="btn btn-info">Retour à la liste des articles</button></a>
 </section>
 

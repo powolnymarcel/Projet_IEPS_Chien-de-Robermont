@@ -44,11 +44,11 @@ Route::get('/admin/listeArticles',[
     'as'=>'listeArticlesAdmin',
     'uses' =>'Admin\ArticlesController@listeArticles']);
 
-Route::get('/admin/ajoutArticle',[
+Route::match(['get','post'],'/admin/ajoutArticle',[
     'as'=>'ajoutArticle',
     'uses' =>'Admin\ArticlesController@ajoutArticle']);
 
-Route::get('/admin/editerArticle/{slug}',[
+Route::match(['get','post'],'/admin/editerArticle/{slug}',[
     'as'=>'editerArticle',
     'uses' =>'Admin\ArticlesController@editerArticle']);
 

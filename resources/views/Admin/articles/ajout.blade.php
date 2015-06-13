@@ -9,7 +9,7 @@
     </section>
     <hr/>
 
-    <form action="{{ route('ajoutArticleDB') }}" method="post" >
+    <form action="{{ isset($article->slug)? route('editerArticle',['slug'=>$article->slug]): route('ajoutArticleDB') }}" method="post" >
         <div class="form-group">
             <label for="titre">Modifier le titre</label>
             <input class="form-control" type="text" name="titre" id="titre" value="{{ $article->titre or ''}}" required="required" />
@@ -33,7 +33,6 @@
         </div>
 
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-        <input type="hidden" name="slug" value="{{ $article->slug or '' }}" />
 
 
         <div class="form-group">

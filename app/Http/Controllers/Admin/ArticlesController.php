@@ -48,10 +48,24 @@ class ArticlesController extends Controller {
         return view('Admin/articles/liste')->with('articles',$articles)->with('rubriques',$rubriques);
     }
 
-    public function editerArticle($slug)
+    public function editerArticle(Request $request,$slug)
     {
         $article= Article::where('slug','=',$slug)->first();
         $rubriques= Rubrique::where('menu','=',1)->get();
+
+        if($request->isMethod('post')){
+            $parameters =$request->except('_token');
+
+            $date= new \DateTime(null);
+            $article->titre= $parameters['titre'];
+            $article->slug= Str::slug($parameters['titre']. $date->format('dmYhis'));
+            $article->texte= $parameters['texte'];
+            $article->photo= $parameters['photo'];
+            $article->rubrique_id= $parameters['rubrique_id'];
+            $article->save();
+            return redirect()->route('listeArticlesAdmin')->with('success','Article mis à jour.');
+
+        }
 
         return view('Admin/articles/ajout')->with('article',$article)->with('rubriques',$rubriques);
     }
@@ -99,7 +113,6 @@ class ArticlesController extends Controller {
         $articles->slug= Str::slug($parameters['titre']. $date->format('dmYhis'));
         $articles->texte= $parameters['texte'];
         $articles->photo= $parameters['photo'];
-        $articles->texte= $parameters['texte'];
         $articles->rubrique_id= $parameters['rubrique_id'];
         $articles->save();
         return redirect()->route('listeArticlesAdmin')->with('success','Article ajouté.');
