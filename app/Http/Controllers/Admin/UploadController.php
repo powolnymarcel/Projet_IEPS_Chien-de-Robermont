@@ -60,17 +60,27 @@ class UploadController extends Controller {
 
         // IF UPLOAD IS SUCCESSFUL SEND SUCCESS MESSAGE OTHERWISE SEND ERROR MESSAGE
         if ($upload_success) {
-            return Redirect()->to('/admin/upload/liste')->with('message', 'Image uploaded successfully');
+            return Redirect()->to('/admin/upload/liste')->with('message', 'Image mise en ligne avec succes!');
         }
     }
 
     public function listePhoto(){
-
         $photos= Media::all();
-
-
         return view('Admin/Photos/liste')->with('photos',$photos);
 
     }
+    public function uniquePhoto($id){
+        $photo=Media::where('id','=',$id)->first();
+        return view('Admin/Photos/unique')->with('photo',$photo);
+
+    }
+
+
+
+
+
+
+
+
 
 }

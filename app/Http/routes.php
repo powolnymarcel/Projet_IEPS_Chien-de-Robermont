@@ -85,4 +85,8 @@ Route::post('/admin/upload/add',[
     'as'=>'AjoutPhoto',
     'uses' =>'Admin\UploadController@uploadFiles']);
 
+Route::get('/admin/uniquePhoto/{id}',[
+    'as'=>'uniquePhoto',
+    'uses' =>'Admin\UploadController@uniquePhoto']);
+
 
