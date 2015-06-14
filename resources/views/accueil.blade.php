@@ -77,16 +77,14 @@
                 @if( $article->rubrique_id != 5)
 
                             @if ($article->photo)
-                            <img width="424" height="283" src="{{asset('files/'.$article->photo)}}" class="attachment-post-thumbnail wp-post-image" alt="Hundetraining">
+                            <img width="424" height="283" src="{{asset('uploads/imagesArticles/'.$article->photo)}}" class="attachment-post-thumbnail wp-post-image" alt="Hundetraining">
                             @else
                             @endif
                         @endif
 
                     </div><div>
 
-                        @if( $article->rubrique_id != 5)
                         <p>{!!$article->texte!!}</p>
-                        @endif
 
 
                     @if( $article->rubrique_id == 5)

@@ -9,7 +9,7 @@
 
     <hr/>
 
-    <form action="{{ isset($article->slug)? route('editerArticle',['slug'=>$article->slug]): route('ajoutArticleDB') }}" method="post" >
+    <form action="{{ isset($article->slug)? route('editerArticle',['slug'=>$article->slug]): route('ajoutArticleDB') }}" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="titre">Modifier le titre</label>
             <input class="form-control" type="text" name="titre" id="titre" value="{{ $article->titre or ''}}" required="required" />
@@ -28,7 +28,7 @@
         </div>
 
         <div class="form-group">
-            <label for="photo">Modifier la photo</label>
+            <label for="photo">Ajouter une photo</label>
             <input  type="file" name="photo" id="photo" accept="image/*" />
         </div>
 

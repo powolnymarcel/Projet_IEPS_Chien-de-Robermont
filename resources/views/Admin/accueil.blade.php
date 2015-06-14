@@ -17,7 +17,7 @@
     <td><a href="{{route('ajoutArticle')}}"><button class="btn btn-success">Ajouter article.</button></a></td>
 </tr>
         <tr>
-            <td>Photos</td>
+            <td>Photos de la Gallerie</td>
             <td><a href="{{route('listePhoto')}}"><button class="btn btn-info">Liste des photos</button></a></td>
             <td><a href="{{route('uploadPhoto')}}"><button class="btn btn-success">Ajouter photo.</button></a></td>
         </tr>

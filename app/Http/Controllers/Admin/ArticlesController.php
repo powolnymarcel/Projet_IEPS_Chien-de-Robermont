@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 use App\Rubrique;
 use App\Article;
 use Illuminate\Support\Str;
-
+use Input;
+use Validator;
+use Response;
+use App\Media;
 
 class ArticlesController extends Controller {
 
@@ -54,19 +57,41 @@ class ArticlesController extends Controller {
         $rubriques= Rubrique::where('menu','=',1)->get();
 
         if($request->isMethod('post')){
+            // GET ALL THE INPUT DATA , $_GET,$_POST,$_FILES.
+            $input = Input::all();
+            // VALIDATION RULES
+            $rules = array(
+                'photo' => 'image|max:3000',
+            );
+            // PASS THE INPUT AND RULES INTO THE VALIDATOR
+            $validation = Validator::make($input, $rules);
+
+            // CHECK GIVEN DATA IS VALID OR NOT
+            if ($validation->fails()) {
+                return Redirect()->to('/')->with('message', $validation->errors->first());
+            }
+
+            $file = array_get($input,'photo');
+            // SET UPLOAD PATH
+            $destinationPath = 'uploads/imagesArticles';
+            // GET THE FILE EXTENSION
+            $extension = $file->getClientOriginalExtension();
+            // RENAME THE UPLOAD WITH RANDOM NUMBER
+            $fileName = rand(11111, 99999) . '.' . $extension;
+            // MOVE THE UPLOADED FILES TO THE DESTINATION DIRECTORY
+            $upload_success = $file->move($destinationPath, $fileName);
+
             $parameters =$request->except('_token');
 
             $date= new \DateTime(null);
             $article->titre= $parameters['titre'];
             $article->slug= Str::slug($parameters['titre']. $date->format('dmYhis'));
             $article->texte= $parameters['texte'];
-            $article->photo= $parameters['photo'];
+            $article->photo= $fileName;
             $article->rubrique_id= $parameters['rubrique_id'];
             $article->save();
-            return redirect()->route('listeArticlesAdmin')->with('success','Article mis à jour.');
-
+            Return redirect()->route('listeArticlesAdmin')->with('success','Article mis à jour.');
         }
-
         return view('Admin/articles/ajout')->with('article',$article)->with('rubriques',$rubriques);
     }
 
@@ -86,7 +111,7 @@ class ArticlesController extends Controller {
         return view('Admin/articles/ajout')->with('rubriques',$rubriques);
     }
 
-    // AFFICHAGE DU FORMULAIRE D'AJOUT D'UN ARTICLE
+    // AFFICHAGE DE l'article UNIQUE
     public function uniqueArticle($rubrique,$slug)
     {
         $rub= Rubrique::where('id','=',$rubrique)->get();
@@ -102,6 +127,33 @@ class ArticlesController extends Controller {
     // AJOUT D'UN ARTICLE DANS LA B.D.
     public function ajoutArticleDB(Request $request)
     {
+
+
+
+        $input = Input::all();
+        // VALIDATION RULES
+        $rules = array(
+            'photo' => 'image|max:3000',
+        );
+        // PASS THE INPUT AND RULES INTO THE VALIDATOR
+        $validation = Validator::make($input, $rules);
+
+        // CHECK GIVEN DATA IS VALID OR NOT
+        if ($validation->fails()) {
+            return Redirect()->to('/')->with('message', $validation->errors->first());
+        }
+
+        $file = array_get($input,'photo');
+        // SET UPLOAD PATH
+        $destinationPath = 'uploads/imagesArticles';
+        // GET THE FILE EXTENSION
+        $extension = $file->getClientOriginalExtension();
+        // RENAME THE UPLOAD WITH RANDOM NUMBER
+        $fileName = rand(11111, 99999) . '.' . $extension;
+        // MOVE THE UPLOADED FILES TO THE DESTINATION DIRECTORY
+        $upload_success = $file->move($destinationPath, $fileName);
+
+
         $parameters =$request->except('_token');
         //Methode fénéant ;)
         // Article::create($parameters);
@@ -112,7 +164,7 @@ class ArticlesController extends Controller {
         $articles->titre= $parameters['titre'];
         $articles->slug= Str::slug($parameters['titre']. $date->format('dmYhis'));
         $articles->texte= $parameters['texte'];
-        $articles->photo= $parameters['photo'];
+        $articles->photo= $fileName;
         $articles->rubrique_id= $parameters['rubrique_id'];
         $articles->save();
         return redirect()->route('listeArticlesAdmin')->with('success','Article ajouté.');
