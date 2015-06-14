@@ -7,16 +7,13 @@
         <a href="{{route('uploadPhoto')}}"><button class="btn btn-warning">Ajouter une photo</button></a>
         <a href="{{route('listePhoto')}}"><button class="btn btn-info">Liste des photos</button></a>
         <a href="{{ route('supprimerPhoto', ['slug' =>$photo->slug]) }}" onclick="return confirm('Etes vous certain de vouloir supprimer ?');"><button class=" btn btn-danger">Supprimer</button></a>
-
-
     </section>
-
     <hr/>
     <main class="container">
     <section class="row">
 
         <figure class="col-lg-6">
-            <img src="{{asset('uploads/imagesArticles/'.$photo->photo)}}
+            <img src="{{asset('uploads/'.$photo->photo)}}
 " alt=""/>
         </figure>
 
