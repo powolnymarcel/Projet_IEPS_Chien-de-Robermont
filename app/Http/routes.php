@@ -49,11 +49,11 @@ Route::get('/admin/listeArticles',[
     'as'=>'listeArticlesAdmin',
     'uses' =>'Admin\ArticlesController@listeArticles']);
 
-Route::match(['get','post'],'/admin/ajoutArticle',[
+Route::any('/admin/ajoutArticle',[
     'as'=>'ajoutArticle',
     'uses' =>'Admin\ArticlesController@ajoutArticle']);
 
-Route::match(['get','post'],'/admin/editerArticle/{slug}',[
+Route::any('/admin/editerArticle/{slug}',[
     'as'=>'editerArticle',
     'uses' =>'Admin\ArticlesController@editerArticle']);
 
@@ -62,7 +62,7 @@ Route::get('/admin/uniqueArticle/{rubrique}/{slug}',[
     'as'=>'uniqueArticle',
     'uses' =>'Admin\ArticlesController@uniqueArticle']);
 
-Route::post('/admin/ajoutArticleDB',[
+Route::any('/admin/ajoutArticleDB',[
     'as'=>'ajoutArticleDB',
     'uses' =>'Admin\ArticlesController@ajoutArticleDB']);
 

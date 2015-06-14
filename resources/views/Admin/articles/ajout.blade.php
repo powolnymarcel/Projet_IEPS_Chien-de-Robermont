@@ -30,12 +30,12 @@
         @if(isset($article->photo))
             <label for="photoactuelle">Photo actuelle</label><br/>
             <img src="{{asset('uploads/imagesArticles/'.$article->photo)}}" width="30%" id="photoactuelle" alt=""/>
-
+            <input type="hidden" value="{{$article->photo}}" name="photoactuelle"/>
 
             <div style="border: 1px solid #000000;width: 30%">
                 <label for="photo">Ajouter la nouvelle photo</label><br/>
                 @endif
-                <input type="file" id="photo" name="file">
+                <input type="file" id="photo" name="photo">
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 </div>
 

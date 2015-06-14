@@ -29,7 +29,7 @@
             <div style="border: 1px solid #000000;width: 30%">
                 <label for="photo">Ajouter la nouvelle photo</label><br/>
                 @endif
-                <input type="file" id="photo" name="file">
+                <input type="file" id="photo" name="photo">
 
                 <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
