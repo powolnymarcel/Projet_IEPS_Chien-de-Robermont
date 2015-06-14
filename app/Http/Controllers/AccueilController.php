@@ -21,7 +21,7 @@ class AccueilController extends Controller {
 	 *
 	 * @return Response
 	 */
-
+// AFFICHE LE SITE  FRONT
     public function index()
     {
         $rubriques=Rubrique::with('articles')->where('menu','=',1)->get();

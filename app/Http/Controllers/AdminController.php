@@ -14,7 +14,7 @@ class AdminController extends Controller {
 	| controllers, you are free to modify or remove it as you desire.
 	|
 	*/
-
+//SECURISE LE CONTROLLER ADMIN
 public function __construct(){
     $this->middleware('auth');
 }
@@ -25,16 +25,10 @@ public function __construct(){
 	 *
 	 * @return Response
 	 */
-
+//AFFICHE L'ACCUEIL ADMIN
     public function index()
     {
-
-       return view('Admin/accueil')
-
-            ;
-
-
-
+       return view('Admin/accueil');
     }
 
 

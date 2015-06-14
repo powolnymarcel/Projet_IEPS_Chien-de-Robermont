@@ -25,7 +25,7 @@ class RubriquesController extends Controller {
 	 */
 
 
-
+//VA TOUT CHERCHER DANS L4entité et le renvois sous la forme de $RUBRIQUES
     public function menu()
     {
         $rubriques=Rubrique::all();

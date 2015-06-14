@@ -24,7 +24,7 @@ class ArticlesController extends Controller {
 	| is configured to only allow guests. Like most of the other sample
 	| controllers, you are free to modify or remove it as you desire.
 	|
-	*/
+	*/ //Action qui sécurise tout le controller
         public function __construct()
         {
             $this->middleware('auth');
@@ -43,6 +43,7 @@ class ArticlesController extends Controller {
     // AFFICHAGE DE LA LISTE DES ARTICLES
     public function listeArticles()
     {
+        //Va chercher tous les élementsio qui ont un champs menu à 1
         $rubriques= Rubrique::where('menu','=',1)->get();
 
         //Vu que Accueil et contact sont statique
@@ -53,9 +54,13 @@ class ArticlesController extends Controller {
 
     public function editerArticle(Request $request,$slug)
     {
+        //va chercher un article unique via le slug
         $article= Article::where('slug','=',$slug)->first();
+        //On a besoin de l'entité rubrique pour la liste déroulante
         $rubriques= Rubrique::where('menu','=',1)->get();
 
+
+        //STOCKAGE PHOTO**************************************************************************************
         if($request->isMethod('post')){
             // GET ALL THE INPUT DATA , $_GET,$_POST,$_FILES.
             $input = Input::all();
@@ -80,9 +85,10 @@ class ArticlesController extends Controller {
             $fileName = rand(11111, 99999) . '.' . $extension;
             // MOVE THE UPLOADED FILES TO THE DESTINATION DIRECTORY
             $upload_success = $file->move($destinationPath, $fileName);
-
+        //STOCKAGE PHOTO**************************************************************************************
+          // AJOUT DES AUTRES CHAMPS DANS LA BASE DE DONNEE
+            // TOUS LES CHAMPS SAUF LE TOKEN
             $parameters =$request->except('_token');
-
             $date= new \DateTime(null);
             $article->titre= $parameters['titre'];
             $article->slug= Str::slug($parameters['titre']. $date->format('dmYhis'));
@@ -90,8 +96,11 @@ class ArticlesController extends Controller {
             $article->photo= $fileName;
             $article->rubrique_id= $parameters['rubrique_id'];
             $article->save();
+           // REDIRECTION VERS LA VUE AVEC UN MESSAGE FLASH DE SUCCES
             Return redirect()->route('listeArticlesAdmin')->with('success','Article mis à jour.');
         }
+
+
         return view('Admin/articles/ajout')->with('article',$article)->with('rubriques',$rubriques);
     }
 
@@ -99,8 +108,10 @@ class ArticlesController extends Controller {
     //SUPPRESSION D'UN ARTICLE
     public function supprimerArticle($slug)
     {
+        //va chercher un article unique via le slug
         $article= Article::where('slug','=',$slug)->first();
         $article->delete();
+        // REDIRECTION VERS LA VUE AVEC UN MESSAGE FLASH DE SUCCES
         return redirect()->route('listeArticlesAdmin')->with('success','Article supprimé');
     }
 
@@ -127,9 +138,7 @@ class ArticlesController extends Controller {
     // AJOUT D'UN ARTICLE DANS LA B.D.
     public function ajoutArticleDB(Request $request)
     {
-
-
-
+        //STOCKAGE PHOTO**************************************************************************************
         $input = Input::all();
         // VALIDATION RULES
         $rules = array(
@@ -152,8 +161,9 @@ class ArticlesController extends Controller {
         $fileName = rand(11111, 99999) . '.' . $extension;
         // MOVE THE UPLOADED FILES TO THE DESTINATION DIRECTORY
         $upload_success = $file->move($destinationPath, $fileName);
+        //STOCKAGE PHOTO**************************************************************************************
 
-
+       // TOUS LES CHAMPS SAUF LE TOKEN
         $parameters =$request->except('_token');
         //Methode fénéant ;)
         // Article::create($parameters);

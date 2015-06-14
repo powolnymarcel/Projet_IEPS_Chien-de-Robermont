@@ -16,6 +16,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var string
 	 */
 	protected $table = 'users';
+	// protected $table = 'LE NO DE LA TABlE DANS MYSQL';
 
 	/**
 	 * The attributes that are mass assignable.
@@ -23,6 +24,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var array
 	 */
 	protected $fillable = ['name', 'email', 'password'];
+	// Si on récupère les données en JSON, ON POURRA CACHER CERTAIN CHAMPS
+	// OBFUSCATION DE CHAMPS
+	// protected $hidden= ['MOT DE PASSE', 'Le TOKEN'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
