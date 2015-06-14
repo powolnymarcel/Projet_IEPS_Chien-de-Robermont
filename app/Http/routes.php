@@ -1,6 +1,7 @@
 <?php
 
 use App\Rubrique;
+use App\Media;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,13 +24,23 @@ Route::controllers([
 ]);
 
 
-Route::get('/', 'AccueilController@index',['as'=>'accueil']);
+
+Route::get('/',[
+    'as'=>'accueil',
+    'uses' =>'AccueilController@index']);
 
 View::creator('Rubriques.menu', function($view)
 {
     $view->with('rubriques', Rubrique::where('menu','=',1)->get());
 });
 
+View::creator('accueil', function($view2)
+{
+    $view2->with('medias', Media::all());
+});
+
+
+ // ROUTES CONCERNANT LA PARTIE ADMINISTRATION
 Route::get('/admin',[
     'as'=>'accueilAdmin',
     'uses' =>'Admin\ArticlesController@index']);
@@ -38,13 +49,51 @@ Route::get('/admin/listeArticles',[
     'as'=>'listeArticlesAdmin',
     'uses' =>'Admin\ArticlesController@listeArticles']);
 
-Route::get('/admin/ajoutArticle',[
+Route::match(['get','post'],'/admin/ajoutArticle',[
     'as'=>'ajoutArticle',
     'uses' =>'Admin\ArticlesController@ajoutArticle']);
 
+Route::match(['get','post'],'/admin/editerArticle/{slug}',[
+    'as'=>'editerArticle',
+    'uses' =>'Admin\ArticlesController@editerArticle']);
+
+
+Route::get('/admin/uniqueArticle/{rubrique}/{slug}',[
+    'as'=>'uniqueArticle',
+    'uses' =>'Admin\ArticlesController@uniqueArticle']);
+
+Route::post('/admin/ajoutArticleDB',[
+    'as'=>'ajoutArticleDB',
+    'uses' =>'Admin\ArticlesController@ajoutArticleDB']);
+
+Route::get('/admin/supprimerArticle/{slug}',[
+    'as'=>'supprimerArticle',
+    'uses' =>'Admin\ArticlesController@supprimerArticle']);
 
 
 
-Route::post('/admin/editerArticles',[
-    'as'=>'editerArticles',
-    'uses' =>'Admin\ArticlesController@editerArticles']);
+
+Route::get('/admin/upload',[
+    'as'=>'uploadPhoto',
+    'uses' =>'Admin\UploadController@index']);
+
+Route::get('/admin/upload/liste',[
+    'as'=>'listePhoto',
+    'uses' =>'Admin\UploadController@listePhoto']);
+
+Route::post('/admin/upload/add',[
+    'as'=>'AjoutPhoto',
+    'uses' =>'Admin\UploadController@uploadFiles']);
+
+Route::get('/admin/uniquePhoto/{id}',[
+    'as'=>'uniquePhoto',
+    'uses' =>'Admin\UploadController@uniquePhoto']);
+
+Route::get('/admin/supprimerPhoto/{slug}',[
+    'as'=>'supprimerPhoto',
+    'uses' =>'Admin\UploadController@supprimerPhoto']);
+
+Route::any('/admin/editerPhoto/{slug}',[
+    'as'=>'editerPhoto',
+    'uses' =>'Admin\UploadController@editerPhoto']);
+

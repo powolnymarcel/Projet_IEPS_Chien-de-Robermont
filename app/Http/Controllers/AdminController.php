@@ -2,7 +2,7 @@
 use App\Rubrique;
 use App\Article;
 
-class AccueilController extends Controller {
+class AdminController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -15,6 +15,10 @@ class AccueilController extends Controller {
 	|
 	*/
 
+public function __construct(){
+    $this->middleware('auth');
+}
+
 
     /**
 	 * Show the application welcome screen to the user.
@@ -24,12 +28,11 @@ class AccueilController extends Controller {
 
     public function index()
     {
-        $rubriques=Rubrique::with('articles')->where('menu','=',1)->get();
 
-        $articleAccueil=Article::find(1)->where('rubrique_id','=',1)->first();
-         return view('accueil')
-                ->with('rubriques',$rubriques)
-                ->with('articleAccueil',$articleAccueil);
+       return view('Admin/accueil')
+
+            ;
+
 
 
     }

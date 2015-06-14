@@ -68,20 +68,40 @@
             @foreach($rubrique->articles as $article)
 
             <h1 class="text-center transform stroke titrePage">{{$article->titre}}</h1>
-            <article><h2 class="text-center transform titreArticle ">{{$article->titre}}</h2><div class="article row lato  "><div class="text-center transform thumb">
 
+            <article>
 
-                        @if ($article->photo)
-                            <img width="424" height="283" src="{{asset('files/'.$article->photo)}}" class="attachment-post-thumbnail wp-post-image" alt="Hundetraining">
-                        @else
+                <h2 class="text-center transform titreArticle ">{{$article->titre}}</h2>
+                <div class="article row lato  "><div class="text-center transform thumb">
+
+                @if( $article->rubrique_id != 5)
+
+                            @if ($article->photo)
+                            <img width="424" height="283" src="{{asset('uploads/imagesArticles/'.$article->photo)}}" class="attachment-post-thumbnail wp-post-image" alt="Hundetraining">
+                            @else
+                            @endif
                         @endif
 
-
-
-
-
                     </div><div>
+
                         <p>{!!$article->texte!!}</p>
+
+
+                    @if( $article->rubrique_id == 5)
+                            <div class="gallery galleryid-35 gallery-columns-3 gallery-size-thumbnail" id="gallery-1">
+                            @foreach($medias as $media)
+                                   <dl class="gallery-item">
+                                    <dt class="gallery-icon landscape">
+        <a data-slb-internal="0" data-slb-active="1" data-slb-group="35" href="{{'uploads/'.$media->photo}}"><img height="150" width="150" alt="Koala" class="attachment-thumbnail" src="{{'uploads/'.$media->photo}}"></a>
+                                    </dt></dl>
+                            @endforeach
+                                <br style="clear: both">
+                    </div>
+                    @endif
+
+
+
+
                     </div></div>
             </article>
 

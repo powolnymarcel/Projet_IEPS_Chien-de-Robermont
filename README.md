@@ -1,3 +1,11 @@
+﻿#TODO
+-------
+	
+     - Changer les textes modifier - ajouter.
+     - Ajouter des commentaires.
+     - Ajouter un plugin pour la gallerie.
+
+
 Description
 -------
 Projet N°3 pour le cours " Projet web dynamique" .
@@ -10,9 +18,25 @@ Design fourni par la section Design.
 
 -=[IEPS Fléron]=-
 
+#SI ERREUR 404 
+-------
+    1.Open apache httpd.conf and find this line :
+
+    #LoadModule rewrite_module modules/mod_rewrite.so
+
+    2.Uncomment this line (remove the #)
+    3.Save httpd.conf
+    4. Restart WAMP
+
+
 Consignes 
 -------
  Refonte du site "Education Canine Le Chien de robermont" avec le framework Laravel5
+
+##Si reprise de ma BDD remplie -> Partie admin :
+email : marcel@marcel.com
+pwd: marcel
+
 
 
 ## Laravel PHP Framework

@@ -1,7 +1,18 @@
-@extends('app')
+@extends('Admin/layout')
+@section('title')
+	<div class="container">
 
+		<main class="row">
+			<header class="col-md-8 col-md-offset-2">
+				<h1>Connexion au dashboard</h1>
+			</header>
+		</main>
+	</div>
+	@endsection
 @section('content')
 <div class="container-fluid">
+
+
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
@@ -58,4 +69,8 @@
 		</div>
 	</div>
 </div>
+
+
+
+
 @endsection

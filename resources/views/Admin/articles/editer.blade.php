@@ -4,17 +4,8 @@
 @section('content')
     <h1>Editer {{ $articles->titre }}</h1>
 
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-   
-    <form action="{{ route('editerArticles', $articles->id) }}" method="post" >
+
+    <form action="{{ route('ajoutArticleDB', $articles->id) }}" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="titre">Modifier le titre</label>
             <input type="text" name="titre" id="titre" value="{{ $articles->titre }}" required="required" />
@@ -30,12 +21,17 @@
             <input type="text" name="texte" id="texte" value="{{ $articles->texte }}" required="required" />
         </div>
 
-        <div class="form-group">
-            <label for="photo">Modifier la photo</label>
-            <input type="file" name="photo" id="photo" accept="image/*" />
-        </div>
-               
-        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+        @if(isset($articles->photo))
+            <label for="photoactuelle">Photo actuelle</label><br/>
+            <img src="{{asset('uploads/imagesArticles'.$articles->photo)}}" width="30%" id="photoactuelle" alt=""/>
+
+
+            <div style="border: 1px solid #000000;width: 30%">
+                <label for="photo">Ajouter la nouvelle photo</label><br/>
+                @endif
+                <input type="file" id="photo" name="file">
+
+                <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
         <input type="submit" />
     </form>

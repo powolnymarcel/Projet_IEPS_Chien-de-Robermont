@@ -13,5 +13,7 @@ class Rubrique extends Model {
         return $this->hasMany('App\Article');
     
     }
+
+
     
 }
