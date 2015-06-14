@@ -27,13 +27,17 @@
 
         </div>
 
-        <div class="form-group">
-            <label for="photo">Ajouter une photo</label>
-            <input  type="file" name="photo" id="photo" accept="image/*" />
-        </div>
+        @if(isset($article->photo))
+            <label for="photoactuelle">Photo actuelle</label><br/>
+            <img src="{{asset('uploads/imagesArticles/'.$article->photo)}}" width="30%" id="photoactuelle" alt=""/>
 
+
+            <div style="border: 1px solid #000000;width: 30%">
+                <label for="photo">Ajouter la nouvelle photo</label><br/>
+                @endif
+                <input type="file" id="photo" name="file">
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-
+</div>
 
         <div class="form-group">
             <label for="rubrique">Dans la rubrique</label>
@@ -51,6 +55,6 @@
         </div>
 
         <input type="submit" class="btn btn-success btn-lg" />
-        <input type="reset" value="Effacer" class="btn btn-warning  btn-lg" />
+            <a href="{{route('listeArticlesAdmin')}}" class="btn btn-danger">Annuler</a>
     </form>   </section>
 @stop

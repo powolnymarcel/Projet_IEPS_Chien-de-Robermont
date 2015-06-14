@@ -28,7 +28,7 @@
 
         @if($article->photo)
             <h4><u>Photo de l'article: </u></h4>
-            <img src="{{asset('files/'.$article->photo)}}" alt=""/>
+            <img src="{{asset('uploads/imagesArticles/'.$article->photo)}}" width="40%" ALT=""/>
 
         @endif
 

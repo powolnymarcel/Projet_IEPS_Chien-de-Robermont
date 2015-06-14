@@ -16,7 +16,7 @@
     <section class="row">
 
         <figure class="col-lg-6">
-            <img src="{{asset('uploads/'.$photo->photo)}}
+            <img src="{{asset('uploads/imagesArticles/'.$photo->photo)}}
 " alt=""/>
         </figure>
 
