@@ -27,8 +27,11 @@ class AccueilController extends Controller {
         $rubriques=Rubrique::with('articles')->where('menu','=',1)->get();
 
         $articleAccueil=Article::find(1)->where('rubrique_id','=',1)->first();
+        //Affiche la vue avec
          return view('accueil')
+             //rub qui est avec le menu a 1
                 ->with('rubriques',$rubriques)
+             // et article qui est dans la rub
                 ->with('articleAccueil',$articleAccueil);
 
 

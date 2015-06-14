@@ -1,5 +1,4 @@
 @extends('app')
-
 @section('content')
 
     <header class="fixe">
