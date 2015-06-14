@@ -54,7 +54,7 @@
         </select>
         </div>
 
-        <input type="submit" class="btn btn-success btn-lg" />
+        <input type="submit" class="btn btn-success " />
             <a href="{{route('listeArticlesAdmin')}}" class="btn btn-danger">Annuler</a>
     </form>   </section>
 @stop

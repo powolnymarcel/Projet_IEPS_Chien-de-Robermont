@@ -35,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ajout.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ajout.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/Admin/articles/ajout.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-26.384615" vertical-offset="283" max-vertical-offset="1105">
-              <caret line="57" column="48" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.81386864" vertical-offset="283" max-vertical-offset="1105">
+              <caret line="56" column="52" selection-start-line="56" selection-start-column="52" selection-end-line="56" selection-end-column="52" />
               <folding>
                 <element signature="e#1280#1324#0#HTML" expanded="true" />
               </folding>
@@ -57,10 +57,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="unique.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="unique.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/Admin/articles/unique.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8686131" vertical-offset="0" max-vertical-offset="969">
+            <state vertical-scroll-proportion="-27.461538" vertical-offset="0" max-vertical-offset="969">
               <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
             </state>
@@ -190,9 +190,9 @@
         <option value="$PROJECT_DIR$/resources/views/accueil.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/Admin/articles/editer.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ArticlesController.php" />
-        <option value="$PROJECT_DIR$/resources/views/Admin/articles/ajout.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/Admin/Photos/unique.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/Admin/articles/unique.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/Admin/articles/ajout.blade.php" />
       </list>
     </option>
   </component>
@@ -578,7 +578,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1034" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1034" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1018,16 +1018,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/Admin/articles/ajout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.384615" vertical-offset="283" max-vertical-offset="1105">
-          <caret line="57" column="48" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
-          <folding>
-            <element signature="e#1280#1324#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/Admin/Photos/unique.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="663">
@@ -1038,9 +1028,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/Admin/articles/unique.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8686131" vertical-offset="0" max-vertical-offset="969">
+        <state vertical-scroll-proportion="-27.461538" vertical-offset="0" max-vertical-offset="969">
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/Admin/articles/ajout.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.81386864" vertical-offset="283" max-vertical-offset="1105">
+          <caret line="56" column="52" selection-start-line="56" selection-start-column="52" selection-end-line="56" selection-end-column="52" />
+          <folding>
+            <element signature="e#1280#1324#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
