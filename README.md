@@ -4,11 +4,6 @@
      - Changer les textes modifier - ajouter.
      - Ajouter des commentaires.
      - Ajouter un plugin pour la gallerie.
-#Avancement
--------
-
-     <p><progress id="avancement" value="85" max="100"></progress>85%</p>
-
 
 
 Description
