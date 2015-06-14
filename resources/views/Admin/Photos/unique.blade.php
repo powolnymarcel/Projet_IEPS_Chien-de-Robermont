@@ -1,4 +1,7 @@
 @extends('Admin/layout')
+@section('title')
+    <h1>Une photo</h1>
+@endsection
 
 @section('content')
     <hr/>

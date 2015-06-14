@@ -11,7 +11,7 @@
 
 <main class="container">
 
-    @yield('title','   <h1>Bienvenue dans votre dashboard !</h1>')
+    @yield('title',' <h1>Dashboard Le chien de Robermont</h1>')
 
 
     @if(Session::has('success'))

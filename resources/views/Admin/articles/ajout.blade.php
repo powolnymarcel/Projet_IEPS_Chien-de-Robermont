@@ -1,5 +1,14 @@
 @extends('Admin/layout')
 
+@section('title')
+    @if( isset($article->slug))
+        <h1>Modifier un article</h1>
+    @else
+        <h1>Ajouter un article</h1>
+
+    @endif
+
+@endsection
 
 @section('content')
     <hr/>

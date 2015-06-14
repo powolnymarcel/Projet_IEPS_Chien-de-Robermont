@@ -1,8 +1,10 @@
 @extends('Admin/layout')
-
 @section('content')
-    <hr/>
-<section class="container">
+    <hr/>@section('title')
+             <h1>Liste des articles</h1>
+             @endsection
+
+    <section class="container">
     <a href="{{route('accueilAdmin')}}"><button class="btn btn-default">Retour à l'accueil Admin</button></a>
     <a href="{{route('ajoutArticle')}}"><button class="btn btn-warning">Ajouter un article</button></a>
 </section>

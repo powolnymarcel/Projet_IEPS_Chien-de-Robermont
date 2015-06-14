@@ -1,4 +1,8 @@
 @extends('Admin/layout')
+@section('title')
+    <h1>Upload de photos</h1>
+@endsection
+
 @section('content')
     <section class="container">
         <a href="{{route('accueilAdmin')}}"><button class="btn btn-default">Retour à l'accueil Admin</button></a>

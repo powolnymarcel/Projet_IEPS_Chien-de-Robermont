@@ -2,7 +2,6 @@
 -------
 	
      - Changer les textes modifier - ajouter.
-     - Ajouter des commentaires.
      - Ajouter un plugin pour la gallerie.
 
 

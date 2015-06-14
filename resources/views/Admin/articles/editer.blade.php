@@ -1,4 +1,7 @@
 @extends('Admin/layout')
+@section('title')
+    <h1>Editer un article</h1>
+@endsection
 
 
 @section('content')
