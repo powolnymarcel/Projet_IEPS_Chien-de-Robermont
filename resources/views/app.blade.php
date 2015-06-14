@@ -34,7 +34,12 @@
 	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://patrogem.be/cdrobermont-wp/xmlrpc.php?rsd">
 	<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://patrogem.be/cdrobermont-wp/wp-includes/wlwmanifest.xml">
 	<meta name="generator" content="WordPress 4.2.2">
-	<link rel="stylesheet" type="text/css" href="{{asset('/files/style.css')}}"><link rel="stylesheet" type="text/css" href="{{asset('/files/css')}}"><link rel="stylesheet" type="text/css" href="{{asset('/files/style(1).css')}}"></head>
+	<link rel="stylesheet" type="text/css" href="{{asset('/files/style.css')}}"><link rel="stylesheet" type="text/css" href="{{asset('/files/css')}}"><link rel="stylesheet" type="text/css" href="{{asset('/files/style(1).css')}}">
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/south-street/jquery-ui.css" id="theme">
+	<link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+
+</head>
+
 <body cz-shortcut-listen="true">
 
 
@@ -54,11 +59,20 @@
 <script type="text/javascript" src="{{asset('/files/tag.item.js')}}"></script>
 <script type="text/javascript" src="{{asset('/files/tag.ui.js')}}"></script>
 <script type="text/javascript" src="{{asset('/files/handler.image.js')}}"></script>
-
 <script type="text/javascript" id="slb_context">/* <![CDATA[ */if ( !!window.jQuery ) {(function($){$(document).ready(function(){if ( !!window.SLB ) { {$.extend(SLB, {"context":["public","user_guest"]});} }})})(jQuery);}/* ]]> */</script>
+<script type="text/javascript" src="{{asset('jQuery-Image-Gallery-master/js/jquery.image-gallery.min.js')}}"></script>
 
 
-
+<!-- The dialog widget -->
+<div id="blueimp-gallery-dialog" data-show="fade" data-hide="fade">
+	<!-- The gallery widget  -->
+	<div class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-controls">
+		<div class="slides"></div>
+		<a class="prev">‹</a>
+		<a class="next">›</a>
+		<a class="play-pause"></a>
+	</div>
+</div>
 
 </body>
 

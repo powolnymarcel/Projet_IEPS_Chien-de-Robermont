@@ -1,7 +1,6 @@
 ﻿#TODO
 -------
 	
-     - Changer les textes modifier - ajouter.
      - Ajouter un plugin pour la gallerie.
 
 
@@ -27,7 +26,7 @@ Design fourni par la section Design.
     3.Save httpd.conf
     4. Restart WAMP
 
-
+# Penser à activer l'extension de fichier dans PHP extensions
 Consignes 
 -------
  Refonte du site "Education Canine Le Chien de robermont" avec le framework Laravel5
