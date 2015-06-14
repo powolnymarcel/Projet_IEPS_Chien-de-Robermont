@@ -1,4 +1,14 @@
-﻿Description
+﻿#TODO
+-------
+	
+     - Changer les textes modifier - ajouter.
+     - Ajouter des commentaires.
+     - Ajouter un plugin pour la gallerie.
+
+
+
+
+Description
 -------
 Projet N°3 pour le cours " Projet web dynamique" .
 
