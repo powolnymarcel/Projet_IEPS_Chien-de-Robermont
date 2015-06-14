@@ -75,6 +75,13 @@ class UploadController extends Controller {
 
     }
 
+    //SUPPRESSION D'UN ARTICLE
+    public function supprimerPhoto($slug)
+    {
+        $media= Media::where('slug','=',$slug)->first();
+        $media->delete();
+        return redirect()->route('listePhoto')->with('success','Photo supprimé');
+    }
 
 
 

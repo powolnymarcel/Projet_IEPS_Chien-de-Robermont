@@ -89,4 +89,7 @@ Route::get('/admin/uniquePhoto/{id}',[
     'as'=>'uniquePhoto',
     'uses' =>'Admin\UploadController@uniquePhoto']);
 
+Route::get('/admin/supprimerPhoto/{slug}',[
+    'as'=>'supprimerPhoto',
+    'uses' =>'Admin\UploadController@supprimerPhoto']);
 
