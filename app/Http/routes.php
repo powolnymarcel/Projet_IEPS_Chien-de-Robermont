@@ -1,6 +1,7 @@
 <?php
 
 use App\Rubrique;
+use App\Media;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,10 @@ View::creator('Rubriques.menu', function($view)
     $view->with('rubriques', Rubrique::where('menu','=',1)->get());
 });
 
+View::creator('accueil', function($view2)
+{
+    $view2->with('medias', Media::all());
+});
 
 
  // ROUTES CONCERNANT LA PARTIE ADMINISTRATION
@@ -64,3 +69,20 @@ Route::post('/admin/ajoutArticleDB',[
 Route::get('/admin/supprimerArticle/{slug}',[
     'as'=>'supprimerArticle',
     'uses' =>'Admin\ArticlesController@supprimerArticle']);
+
+
+
+
+Route::get('/admin/upload',[
+    'as'=>'uploadPhoto',
+    'uses' =>'Admin\UploadController@index']);
+
+Route::get('/admin/upload/liste',[
+    'as'=>'listePhoto',
+    'uses' =>'Admin\UploadController@listePhoto']);
+
+Route::post('/admin/upload/add',[
+    'as'=>'AjoutPhoto',
+    'uses' =>'Admin\UploadController@uploadFiles']);
+
+

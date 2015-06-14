@@ -31,7 +31,11 @@
 
                 @elseif($rubriques[2]->id == $article->rubrique_id)
                     {{$rubriques[2]->titre}}
+                  @elseif($rubriques[3]->id == $article->rubrique_id)
+                    {{$rubriques[3]->titre}}
+                     @else
                 @endif
+
             </td>
 
             <td><a href="{{ route('uniqueArticle', ['slug' =>$article->slug,"rubrique"=>$article->rubrique_id]) }}"><button class=" btn btn-success">Voir</button></a></td>

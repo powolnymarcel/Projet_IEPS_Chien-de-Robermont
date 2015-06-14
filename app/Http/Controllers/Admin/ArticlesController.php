@@ -43,7 +43,7 @@ class ArticlesController extends Controller {
         $rubriques= Rubrique::where('menu','=',1)->get();
 
         //Vu que Accueil et contact sont statique
-        $articles=Article::where('rubrique_id','!=',6)->where('rubrique_id','!=',1)->get();
+        $articles=Article::where('rubrique_id','!=',6)->where('rubrique_id','!=',5)->where('rubrique_id','!=',1)->get();
 
         return view('Admin/articles/liste')->with('articles',$articles)->with('rubriques',$rubriques);
     }
@@ -82,7 +82,7 @@ class ArticlesController extends Controller {
     // AFFICHAGE DU FORMULAIRE D'AJOUT D'UN ARTICLE
     public function ajoutArticle()
     {
-        $rubriques= Rubrique::where('menu','=',1)->get();
+        $rubriques= Rubrique::where('menu','=',1)->where('id','!=',5)->get();
         return view('Admin/articles/ajout')->with('rubriques',$rubriques);
     }
 

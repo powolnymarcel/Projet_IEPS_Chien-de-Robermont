@@ -42,7 +42,7 @@
 
             @foreach ($rubriques as $rubrique)
                 <option value="{{ $rubrique->id}}"
-                        @if(isset( $articles))
+                        @if(isset( $article))
                             @if($rubrique->id == $article->rubrique_id) selected="selected" @endif
                         @endif
                         >{{ $rubrique->titre }}</option>
