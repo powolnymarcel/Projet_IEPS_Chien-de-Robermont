@@ -10,11 +10,23 @@
     @endif
     <hr />
 
-    <form action="{{route('AjoutPhoto')}}" method="post" enctype="multipart/form-data">
+    <form action="{{isset($media->photo)?route('editerPhoto',['slug'=>$media->slug]):route('AjoutPhoto') }}" method="post" enctype="multipart/form-data">
         <label for="titre">Titre de la photo</label>
-        <input type="text" id="titre" name="titre"/>
-        <input type="file" name="file">        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+        <input type="text" id="titre" name="titre"  value="{{$media->titre or ''}}"/><br/>
+
+       @if(isset($media->slug))
+            <label for="photoactuelle">Photo actuelle</label><br/>
+            <img src="{{asset('uploads/'.$media->photo)}}" width="30%" id="photoactuelle" alt=""/>
+
+
+            <div style="border: 1px solid #000000;width: 30%">
+            <label for="photo">Ajouter la nouvelle photo</label><br/>
+        @endif
+        <input type="file" id="photo" name="file">
+           </div>
+        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <br/>
         <input type="submit" class="btn btn-info">
+            <a href="{{route('listePhoto')}}" class="btn btn-danger">Annuler</a>
     </form>
 @endsection

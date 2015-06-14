@@ -93,3 +93,7 @@ Route::get('/admin/supprimerPhoto/{slug}',[
     'as'=>'supprimerPhoto',
     'uses' =>'Admin\UploadController@supprimerPhoto']);
 
+Route::any('/admin/editerPhoto/{slug}',[
+    'as'=>'editerPhoto',
+    'uses' =>'Admin\UploadController@editerPhoto']);
+

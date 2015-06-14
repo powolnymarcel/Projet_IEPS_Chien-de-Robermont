@@ -23,7 +23,7 @@
             <figcaption>Titre: {{$photo->titre}}</figcaption>
              <img src="{{asset('uploads/'.$photo->photo)}}" width="30%" height="100px" alt=""/><br/><br/>
             <a href="{{route('uniquePhoto',$photo->id)}}"> <button class="btn btn-success">Voir</button></a>
-            <button class="btn btn-info">Modifier</button>
+            <a href="{{ route('editerPhoto', $photo->slug) }}"><button class=" btn btn-info">Modifier</button></a>
             <a href="{{ route('supprimerPhoto', ['slug' =>$photo->slug]) }}" onclick="return confirm('Etes vous certain de vouloir supprimer ?');"><button class=" btn btn-danger">Supprimer</button></a>
             <br/><br/>
         </figure>
